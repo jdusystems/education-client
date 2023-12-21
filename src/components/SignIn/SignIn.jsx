@@ -56,7 +56,7 @@ function SignIn() {
         axios.post(login_api_url(), formData, {headers})
         .then ((response) => {
           console.log(response.data)
-            localStorage.setItem('accessToken', response.data.token); 
+            // localStorage.setItem('accessToken', response.data.token); 
             // localStorage.setItem('refreshToken', response.data.detail.tokens.refresh); 
             navigate("/home")   
         }).catch ((err) => {
