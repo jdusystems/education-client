@@ -9,6 +9,7 @@ import { useTheme } from '@mui/material/styles';
 import TagIcon from '@mui/icons-material/Tag';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import CloseIcon from '@mui/icons-material/Close';
 // 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -17,6 +18,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import { useNavigate } from 'react-router-dom';
+import UniversityApplication from './UniversityApplication';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -288,10 +290,12 @@ function Application() {
             <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Box
                 sx={{
+                  width: '100%',
                   display: 'flex',
                   justifyContent: 'flex-start',
                   alignItems: 'center',
                   gap: '0.5rem',
+                  position: 'relative'
                 }}
               >
                 <Avatar
@@ -302,6 +306,9 @@ function Application() {
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
                   Lorem, ipsum dolor.
                 </Typography>
+                <IconButton sx={{position: 'absolute', right: 0}} aria-label="delete">
+                  <CloseIcon color='danger' />
+                </IconButton>
               </Box>
             </CardContent>
             <CardContent>
@@ -481,10 +488,12 @@ function Application() {
             <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Box
                 sx={{
+                  width: '100%',
                   display: 'flex',
                   justifyContent: 'flex-start',
                   alignItems: 'center',
                   gap: '0.5rem',
+                  position: 'relative'
                 }}
               >
                 <Avatar
@@ -495,6 +504,9 @@ function Application() {
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
                   Lorem, ipsum dolor.
                 </Typography>
+                <IconButton sx={{position: 'absolute', right: 0}} aria-label="delete">
+                  <CloseIcon color='danger' />
+                </IconButton>
               </Box>
             </CardContent>
             <CardContent>
@@ -678,6 +690,8 @@ function Application() {
                           justifyContent: 'flex-start',
                           alignItems: 'center',
                           gap: '0.5rem',
+                          position: 'relative',
+                          width: '100%'
                         }}
                       >
                         <Avatar
@@ -688,6 +702,9 @@ function Application() {
                         <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
                           Lorem, ipsum dolor.
                         </Typography>
+                        <IconButton sx={{position: 'absolute', right: 0}} aria-label="delete">
+                          <CloseIcon color='danger' />
+                        </IconButton>
                       </Box>
                     </CardContent>
                     <CardContent>
@@ -905,208 +922,7 @@ function Application() {
                       </Button>
                   </Box>
                 </Box>
-                <Box mt={2}>
-                  <Grid container spacing={3}>
-                    <Grid item xl={6}>
-                        <FormControl>
-                        <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="first-name"
-                        label="First Name"
-                        name="first-name"
-                        helperText="Please select First Name"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="last-name"
-                        label="Last Name"
-                        name="last-name"
-                        helperText="Please select Last Name"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="father-name"
-                        label="Father Name"
-                        name="father-name"
-                        helperText="Please select Father Name"
-                      />
-                    </FormGroup>
-                    <FormGroup> 
-                      <TextField
-                        id="outlined-select-currency"
-                        select
-                        margin="normal"
-                        value={academy}
-                        onChange={(e) => {setAcademy(e.target.value)}}
-                        color='primary'
-                        label="Nationality"
-                        helperText="Please select Nationality">
-                            <MenuItem  value="O'quv Markaz">
-                                O'quv Markaz
-                            </MenuItem>
-                            <MenuItem  value="Universitet">
-                                Universitet
-                            </MenuItem>
-                            <MenuItem  value="Maktab">
-                                Maktab
-                            </MenuItem>
-                            <MenuItem  value="Maktabgacha Talim">
-                                Maktabgacha Talim
-                            </MenuItem>
-                      </TextField>
-                    </FormGroup>
-                    <FormGroup> 
-                      <TextField
-                        id="outlined-select-currency"
-                        select
-                        margin="normal"
-                        value={academy}
-                        onChange={(e) => {setAcademy(e.target.value)}}
-                        color='primary'
-                        label="Region"
-                        helperText="Please select Region">
-                            <MenuItem  value="O'quv Markaz">
-                                O'quv Markaz
-                            </MenuItem>
-                            <MenuItem  value="Universitet">
-                                Universitet
-                            </MenuItem>
-                            <MenuItem  value="Maktab">
-                                Maktab
-                            </MenuItem>
-                            <MenuItem  value="Maktabgacha Talim">
-                                Maktabgacha Talim
-                            </MenuItem>
-                      </TextField>
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="address"
-                        helperText="Please select Address"
-                        label="Address"
-                        name="address"
-                      />
-                    </FormGroup>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xl={6}>
-                        <FormControl>
-                        <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="email"
-                        label="Email"
-                        name="email"
-                        helperText="Please select Email"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="phone"
-                        label="Phone"
-                        name="phone"
-                        helperText="Please select Phone"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="age"
-                        label="Age"
-                        name="age"
-                        helperText="Please select Age"
-                      />
-                    </FormGroup>
-                    <FormGroup> 
-                      <TextField
-                        id="outlined-select-currency"
-                        select
-                        margin="normal"
-                        value={academy}
-                        onChange={(e) => {setAcademy(e.target.value)}}
-                        color='primary'
-                        label="Gander"
-                        helperText="Please select Gander">
-                            <MenuItem  value="O'quv Markaz">
-                                O'quv Markaz
-                            </MenuItem>
-                            <MenuItem  value="Universitet">
-                                Universitet
-                            </MenuItem>
-                            <MenuItem  value="Maktab">
-                                Maktab
-                            </MenuItem>
-                            <MenuItem  value="Maktabgacha Talim">
-                                Maktabgacha Talim
-                            </MenuItem>
-                      </TextField>
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="last-academy"
-                        helperText="Please select Last Academy"
-                        label="The last completed general secondary or secondary special educational institution"
-                        name="last-academy"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-                        margin="normal"
-                        sx={{width: '400px'}}
-                        required
-                        color='primary'
-                        id="direction"
-                        label="Direction"
-                        name="direction"
-                        helperText="Please select Direction"
-                      />
-                    </FormGroup>
-                        </FormControl>
-                    </Grid>
-                  </Grid>
-                  <Box>
-                    <Button
-                        type="button"
-                        color='danger'
-                        variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
-                      >
-                        Apply to all
-                      </Button>
-                  </Box>
-                </Box>
+                <UniversityApplication />
             </Grid>
         </Grid>
     </Stack>

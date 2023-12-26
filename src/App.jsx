@@ -29,7 +29,7 @@ import Versus from './components/Versus/Versus';
 import { useState } from 'react';
 
 function App() {
-  const [role, setRole] = useState(2);
+  const [role, setRole] = useState(1);
   return (
     <ThemeProvider theme={themeOptions}>
       <CssBaseline />
