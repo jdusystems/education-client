@@ -11,6 +11,7 @@ import logo from "../Assets/img/logo.svg";
 import vs from "../Assets/img/vs.webp"
 import CategoryIcon from '@mui/icons-material/Category';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { deployRout } from '../../utils/API'
 
 function Header() {
   const [language, setLanguage] = useState('English');
