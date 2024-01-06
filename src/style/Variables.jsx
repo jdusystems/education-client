@@ -12,7 +12,11 @@ export const themeOptions = createTheme({
         main: '#BC002D',
     },
     grey: {
-        main: "#ccc"
+        main: "#D0D5DD",
+    },
+    success : {
+        contrastText: "#fff",
+        main: '#7CC248',
     }
   },
   typography: {

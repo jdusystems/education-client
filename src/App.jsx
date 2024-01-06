@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, HashRouter } from 'react-router-dom';
 import { themeOptions } from './style/Variables';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -33,7 +33,7 @@ function App() {
   return (
     <ThemeProvider theme={themeOptions}>
       <CssBaseline />
-      <BrowserRouter>
+      <HashRouter>
         <Routes >
           <Route path='' element={<Header />}> 
             <Route index element={<Home />} />
@@ -75,7 +75,7 @@ function App() {
             </>: <></>
           }
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }

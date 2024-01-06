@@ -13,52 +13,37 @@ function Footer() {
     <Stack sx={{background: '#F5F5F5', marginTop: '20px'}}>
       <Container>
         <Grid container py={6}>
-          <Grid item xl={3}>
-            <Typography variant='subtitle2' fontWeight='bold'>About Us</Typography>
+          <Grid item mt={{xl: 0, md: 3, sm: 3, xs: 3}} xl={3} md={4} sm={6} xs={12}>
+            <Typography variant='subtitle2' fontWeight='bold'>Asosiy</Typography>
             <List>
                 <ListItem sx={{paddingLeft: 0}}>
-                  <NavLink style={navLinkStyle}>Doc</NavLink>
+                  <NavLink style={navLinkStyle}>Aloqa</NavLink>
+                  <NavLink style={navLinkStyle}>Categoriyalar</NavLink>
+                </ListItem>
+                <ListItem sx={{paddingLeft: 0}}>
+                  <NavLink style={navLinkStyle}>Categoriyalar</NavLink>
                 </ListItem>
             </List>
           </Grid>
-          <Grid item xl={3}>
-            <Typography variant='subtitle2' fontWeight='bold'>For Users</Typography>
+          <Grid item mt={{xl: 0, md: 3, sm: 3, xs: 3}} xl={6} md={4} sm={6} xs={12}>
+            <Typography variant='subtitle2' fontWeight='bold'>Ta'lim</Typography>
             <List>
                 <ListItem sx={{paddingLeft: 0}}>
-                  <NavLink style={navLinkStyle}>Contact Us</NavLink>
+                  <NavLink style={navLinkStyle}>O'quv Markaz</NavLink>
                 </ListItem>
                 <ListItem sx={{paddingLeft: 0}}>
-                  <NavLink style={navLinkStyle}>Doc</NavLink>
+                  <NavLink style={navLinkStyle}>Universitet</NavLink>
+                </ListItem>
+                <ListItem sx={{paddingLeft: 0}}>
+                  <NavLink style={navLinkStyle}>Maktab</NavLink>
+                </ListItem>
+                <ListItem sx={{paddingLeft: 0}}>
+                  <NavLink style={navLinkStyle}>Maktabgacha Talim</NavLink>
                 </ListItem>
             </List>
           </Grid>
-          <Grid item xl={3}>
-            <Typography variant='subtitle2' fontWeight='bold'>For Knowledge Centers</Typography>
-            <List>
-                <ListItem sx={{paddingLeft: 0}}>
-                  <NavLink style={navLinkStyle}>Advertise with us</NavLink>
-                </ListItem>
-                <ListItem sx={{paddingLeft: 0}}>
-                  <NavLink style={navLinkStyle}>Doc</NavLink>
-                </ListItem>
-            </List>
-          </Grid>
-          <Grid item xl={3}>
-            <Typography variant='subtitle2' fontWeight='bold'>Download the App</Typography>
-            <List sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}>
-                <ListItem sx={{paddingLeft: 0}}>
-                  <ListItemIcon sx={{marginRight: -3, color: 'black'}}><AppleIcon/></ListItemIcon> 
-                  <NavLink style={navLinkStyle}>App Store</NavLink>
-                </ListItem>
-                <ListItem sx={{paddingLeft: 0}}>
-                  <ListItemIcon sx={{marginRight: -3, color: 'black'}}><ShopIcon/></ListItemIcon>
-                  <NavLink style={navLinkStyle}>Play Market</NavLink>
-                </ListItem>
-            </List>
+          <Grid item mt={{xl: 0, md: 3, sm: 3, xs: 3}} xl={3} md={4} sm={6} xs={12}>
+            
             <Typography variant='subtitle2' fontWeight='bold'>Our Social Networks</Typography>
             <List sx={{
               display: 'flex',
@@ -80,9 +65,9 @@ function Footer() {
             </List>
           </Grid>
         </Grid>
-        <Grid container py={2}>
+        <Grid container py='32px' borderTop='solid 1px #E2E3E6'>
             <Grid item xl={12} textAlign='center'>
-              <Typography variant='subtitle2'>&copy; 2023 JDU System All rights reserved</Typography>
+              <Typography sx={{fontSize: '12px', color: '#707378'}} variant='subtitle2'>&copy; 2023 JDU – Copyright JDU System 2023.</Typography>
             </Grid>
         </Grid>
       </Container>
@@ -91,8 +76,14 @@ function Footer() {
 }
 
 const navLinkStyle = {
-  color: '#072556',
-  textDecoration: 'none'
+  color: '#707378',
+  textDecoration: 'none',
+  fontFamily: 'Inter',
+  fontSize: '18px',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  lineHeight: '26px', /* 144.444% */
+  letterSpacing: '-0.6px',
 }
 
 export default Footer

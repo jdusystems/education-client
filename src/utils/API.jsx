@@ -1,4 +1,5 @@
 export const baseUrl = "http://127.0.0.1:8000";
+export const deployRout = 'education-client'
 
 // login api url
 export const login_api_url = () => `${baseUrl}/api/auth/login`;

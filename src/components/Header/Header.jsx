@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import Home from '../Home/Home'
 import Footer from '../Footer/Footer'
 import Category from '../Category/Category'
-import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { Container, Grid, Tooltip, Avatar, Stack, Box, SvgIcon, Menu, Typography, IconButton, Paper, InputBase, FormControl, FormGroup, Select, MenuItem, Button } from '@mui/material'
-import ContrastIcon from '@mui/icons-material/Contrast';
-import SearchIcon from '@mui/icons-material/Search';
-import LanguageIcon from '@mui/icons-material/Language';
-import logo from "../Assets/img/logo.svg";
-import vs from "../Assets/img/vs.webp"
+import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Container, Grid, Avatar, Stack, Box, FormControl, InputLabel, Select, Menu, Typography, IconButton, MenuItem, Button } from '@mui/material'
+import logo from "../Assets/img/edu-map-logo.png";
 import CategoryIcon from '@mui/icons-material/Category';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 function Header() {
-  const [language, setLanguage] = useState('English');
+  const [language, setLanguage] = useState('Eng');
   const [isAgreeCategory, setIsAgreeCategory] = useState('none');
   const navigate = useNavigate();
   const [role, setRole] = useState(1);
@@ -96,94 +93,77 @@ function Header() {
   return (
     <Stack>
         <Container>
-            <Grid container height={{xl: 55, md: 55, sm: 90, xs: 90}} alignItems='center'>
-              <Grid item xl={2}  order={{xl: 1, md: 1, sm: 1, xs: 1}} md={2} sm={4} xs={4}>
-                <NavLink style={navLinkStyle}><span style={{color: "#BC002D"}}>JDU</span> System</NavLink>
-              </Grid>
-              <Grid item textAlign={{xl: 'left', md: 'center', sm: 'center', xs: 'center'}} xl={7} md={7} sm={12} xs={12} order={{xl: 1, md: 1, sm: 3, xs: 3}}>
-                <Typography variant='subtitle2'>Bizning foydalanuvchilarimiz 999999 ga yetdi.</Typography>
-              </Grid>
-              <Grid item xl={3} md={3} sm={8} xs={8} order={{xl: 1, md: 1, sm: 2, xs: 2}} display='flex' justifyContent={{xl: 'space-between', md: 'space-between', sm: 'flex-end', xs: 'flex-end'}} alignItems='center'>
-                <NavLink style={navLinkStyle}>Doc</NavLink>
-                <IconButton aria-label="contrast" color='primary'>
-                  <ContrastIcon />
-                </IconButton>
-                <FormControl sx={{minWidth: 150 }} size="small">
-                  <Select
-
-                    defaultValue='English'
-                    id="demo-select-small"
-                    color='primary'
-                    value={language}
-                    onChange={handleChange}
-                    renderValue={(value) => {
-                      return (
-                        <Box sx={{ display: "flex", gap: 1, fontSize: '14px' }}>
-                          <SvgIcon color="primary">
-                            <LanguageIcon />
-                          </SvgIcon>
-                          {value}
-                        </Box>
-                      );
-                    }}
-                  >
-                    <MenuItem value='English'> English</MenuItem>
-                    <MenuItem value='Russian'>Russian</MenuItem>
-                    <MenuItem value='Uzbek'>Uzbek</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-            </Grid>
-            <Grid container spacing={1} height={{xl: 90, md: 90, sm: 'auto', xs: 'auto'}} alignItems='center'>
-              <Grid item xl={2} md={2} sm={3} xs={5} order={{xl: 1, md: 1, sm: 1, xs: 1}} display='flex' justifyContent='space-between' alignItems='center'>
+            <Grid container spacing={1} height={90} alignItems='center'>
+              <Grid item xl={4} md={4} sm={4} xs={4} display='flex' justifyContent='flex-start' alignItems='center'>
                 <Link to='home'>
-                    <img src={logo} width={150} alt="Space os Knowledge" />
+                    <img src={logo} height={52} alt="Space os Knowledge" />
                 </Link>
+                <Button onClick={openCategory} size='large' sx={{ 
+                  height: {xl: 50, md: 50, sm: 32, xs: 32}, 
+                  display: {xl: 'flex', md: 'flex', sm: 'flex', xs: 'none'}, 
+                  marginLeft: {xl: '47px', md: '47px', sm: '20px', xs: '20px'}, 
+                  color: 'black', 
+                  fontSize: '14px', 
+                  textTransform: 'capitalize'}} variant="outlined" color='grey' endIcon={<CategoryIcon />}>
+                    Category
+                </Button>
+                <Button onClick={openCategory} size='large' sx={{
+                    width: {xl: 50, md: 32, sm: 32, xs: 32}, 
+                    height: {xl: 50, md: 32, sm: 32, xs: 32}, 
+                    display: {xl: 'none', md: 'none', sm: 'none', xs: 'flex'}, 
+                    marginLeft: {xl: '47px', md: '47px', sm: '47px', xs: '20px'}, 
+                    color: 'black', 
+                    fontSize: '14px', 
+                    textTransform: 'capitalize'}} variant="outlined" color='grey'>
+                  <CategoryIcon />
+                </Button>
               </Grid>
-              <Grid item xl={7} md={7} sm={12} xs={12} order={{xl: 2, md: 2, sm: 3, xs: 3}} display='flex' justifyContent='space-between' alignItems='center' >
-              <Button onClick={openCategory} size='large' sx={{height: 44}} variant="outlined" color='danger' startIcon={<CategoryIcon />}>
-                  Category
-              </Button>
-              <Paper
-                  component="form"
-                  sx={{display: 'flex', alignItems: 'center', width: '75%' }}
-                >
-                  <InputBase
-                    sx={{ ml: 1, flex: 1 }}
-                    placeholder="Search Academy Name..."
-                  />
-                  <IconButton onClick={search} type="button" sx={{ p: '10px' }} aria-label="search">
-                    <SearchIcon />
-                  </IconButton>
-                </Paper>
-              </Grid>
-              <Grid item xl={3} gap={1} md={3} sm={9} xs={7} order={{xl: 3, md: 3, sm: 2, xs: 2}} display='flex' justifyContent={{xl: 'space-between', md: 'space-between', sm: 'flex-end', xs: 'flex-end'}} alignItems='center'>
-                <Box order={{xl: 2, md: 2, sm: 2, xs: 2}}>
-                  <IconButton aria-label="contrast" onClick={like} color='danger'>
-                    <FavoriteBorderIcon />
+              <Grid item xl={8} md={8} sm={8} xs={8} gap={1} display='flex' justifyContent='flex-end' alignItems='center'>               
+                <Box>
+                  <FormControl>
+                    <Select
+                      sx={{width: 80, height: {xl: 50, md: 50, sm: 32, xs: 32}, fontSize: 14}}
+                      color='grey'
+                    
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={language}
+                      onChange={handleChange}
+                    >
+                      <MenuItem value='Uzb'>Uzb</MenuItem>
+                      <MenuItem value='Ru'>Ru</MenuItem>
+                      <MenuItem value='Eng'>Eng</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box>
+                  <IconButton sx={{ p: 0,  }}>
+                    <Avatar alt="Remy Sharp" sx={{bgcolor: '#fff', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}} variant="rounded" src="" >
+                      <BarChartIcon sx={{color: '#000'}} />  
+                    </Avatar>  
                   </IconButton>
                 </Box>
-                <Box order={{xl: 3, md: 3, sm: 3, xs: 3}}>
-                  <Avatar
-                  alt="vs"
-                  onClick={versus}
-                  src="https://www.freepnglogos.com/uploads/vs-png/vs-icon-black-download-5.png"
-                  sx={{  cursor: 'pointer' }}
-                  />
+                <Box >
+                  <IconButton sx={{ p: 0 }}>
+                    <Avatar alt="Remy Sharp" sx={{bgcolor: '#fff', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}} variant="rounded" src="" >
+                      <FavoriteBorderIcon sx={{color: '#000'}} />  
+                    </Avatar>  
+                  </IconButton>
                 </Box>
                 {
                   role === null ? <>
-                    <Button size='large' onClick={signIn} sx={{height: 44}} variant="contained" color='danger'>
+                    <Button  onClick={signIn} sx={{height: {xl: 50, md: 50, sm: 32, xs: 32}, width: {xl: 150, md: 150, sm: 150, xs: 150}, color: 'black', fontSize: '14px', textTransform: 'capitalize'}} variant="contained" color='grey'>
                     Sign In
                   </Button>
-                  <Button size='large' onClick={signUp} sx={{height: 44}} variant="contained" color='primary'>
+                  <Button  onClick={signUp} sx={{height: {xl: 50, md: 50, sm: 32, xs: 32}, width: {xl: 150, md: 150, sm: 150, xs: 150}, color: 'black', fontSize: '14px', textTransform: 'capitalize'}} variant="contained" color='success'>
                     Sign Up
                   </Button>
-                  </> : <Box order={{xl: 1, md: 1, sm: 1, xs: 1}} sx={{ flexGrow: 0, width: '220px' }}>
-                    <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-end'>
-                      <Typography variant="" fontWeight='bold' fontSize={16}>Full Name</Typography>
+                  </> : <Box sx={{ flexGrow: 0 }}>
+                      <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-end'>
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />  
+                        <Avatar alt="Remy Sharp" sx={{bgcolor: '#fff', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}} variant="rounded" src="" >
+                          <PersonOutlineIcon sx={{color: '#000'}} />  
+                        </Avatar>  
                       </IconButton>
                     </Stack>
                     {
@@ -251,8 +231,8 @@ function Header() {
                 <Category />
               </Stack>
             </Box>
-            <Outlet/>
         </Container>
+        <Outlet/>
           <Footer />
     </Stack>
   )
