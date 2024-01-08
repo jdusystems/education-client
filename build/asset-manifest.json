@@ -1,21 +1,20 @@
 {
   "files": {
     "main.css": "/education-client/static/css/main.edd0d594.css",
-    "main.js": "/education-client/static/js/main.13414369.js",
+    "main.js": "/education-client/static/js/main.466405c7.js",
     "static/js/787.06193ecb.chunk.js": "/education-client/static/js/787.06193ecb.chunk.js",
     "static/media/banner-bg.png": "/education-client/static/media/banner-bg.73e82a8d129bef53d711.png",
     "static/media/Versus_icon.png": "/education-client/static/media/Versus_icon.661a9082aaff944311bb.png",
     "static/media/edu-map-logo.png": "/education-client/static/media/edu-map-logo.494fd91b735843b05754.png",
-    "static/media/logo.svg": "/education-client/static/media/logo.4749d43b91bedb8f03c991101de7fdc7.svg",
     "static/media/changes.png": "/education-client/static/media/changes.d104ac1765e5427da099.png",
     "static/media/free-image-file.webp": "/education-client/static/media/free-image-file.948717ae9feec1cc0f2c.webp",
     "index.html": "/education-client/index.html",
     "main.edd0d594.css.map": "/education-client/static/css/main.edd0d594.css.map",
-    "main.13414369.js.map": "/education-client/static/js/main.13414369.js.map",
+    "main.466405c7.js.map": "/education-client/static/js/main.466405c7.js.map",
     "787.06193ecb.chunk.js.map": "/education-client/static/js/787.06193ecb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.edd0d594.css",
-    "static/js/main.13414369.js"
+    "static/js/main.466405c7.js"
   ]
 }
