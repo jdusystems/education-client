@@ -18,7 +18,9 @@ function Category() {
   return (
     <Stack>
         <Grid container>
-            <Grid item py={3} xl={3} borderRight={1}>
+            <Grid item py={3} xl={3} md={3} sm={5} xs={12} 
+            borderBottom={{xl: 0, md: 0, sm: 0, xs: 1}}  
+            borderRight={{xl: 1, md: 1, sm: 1, xs: 0}}>
                 <List>
                     <ListItem
                     secondaryAction={
@@ -78,10 +80,10 @@ function Category() {
                     </ListItem>
                 </List>
             </Grid>
-            <Grid item p={3} xl={9}>
+            <Grid item p={3} xl={9} md={9} sm={7} xs={12}>
                 <Typography variant='h6'>Academy</Typography>
                 <Grid container mt={2} spacing={2}>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
@@ -109,7 +111,7 @@ function Category() {
                             </List>
                         </nav>
                     </Grid>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
@@ -137,7 +139,7 @@ function Category() {
                             </List>
                         </nav>
                     </Grid>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
@@ -165,7 +167,7 @@ function Category() {
                             </List>
                         </nav>
                     </Grid>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
@@ -193,7 +195,7 @@ function Category() {
                             </List>
                         </nav>
                     </Grid>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
@@ -215,7 +217,7 @@ function Category() {
                             </List>
                         </nav>
                     </Grid>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
@@ -237,7 +239,7 @@ function Category() {
                             </List>
                         </nav>
                     </Grid>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
@@ -262,7 +264,7 @@ function Category() {
                             </List>
                         </nav>
                     </Grid>
-                    <Grid item xl={4}>
+                    <Grid item xl={4} md={4} sm={6} xs={12}>
                         <nav aria-label="main mailbox folders">
                             <List>
                             <ListItem disablePadding>
