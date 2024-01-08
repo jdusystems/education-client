@@ -93,10 +93,12 @@ function Header() {
   return (
     <Stack>
         <Container>
-            <Grid container spacing={1} height={90} alignItems='center'>
+            <Grid container spacing={1} height={{xl: 76, md: 76, sm: 76, xs: 64}} alignItems='center'>
               <Grid item xl={4} md={4} sm={4} xs={4} display='flex' justifyContent='flex-start' alignItems='center'>
                 <Link to='home'>
-                    <img src={logo} height={52} alt="Space os Knowledge" />
+                    <img src={logo} height={52} style={{'@media screen and (max-width: 600px) and (min-width: 0px)': {
+        height: '40px',
+      },}} alt="Space os Knowledge" />
                 </Link>
                 <Button onClick={openCategory} size='large' sx={{ 
                   height: {xl: 50, md: 50, sm: 32, xs: 32}, 
