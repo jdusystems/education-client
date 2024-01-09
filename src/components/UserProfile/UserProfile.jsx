@@ -1,4 +1,4 @@
-import { Grid, Stack, Rating, Box, Typography, FormControl, Avatar, FormGroup, TextField, Button } from '@mui/material'
+import { Grid, Stack, Rating, Box, Typography, FormControl, Avatar, FormGroup, TextField, Button, Container } from '@mui/material'
 import ImgFileIcon from "../Assets/img/free-image-file.webp"
 import React from 'react'
 import { useState, useRef } from 'react';
@@ -10,7 +10,7 @@ function UserProfile() {
   const [fullName, setFullName] = useState('');
   const [changes, setChanges] = useState(1);
   const [fileList, setFileList] = useState(null);
-  const [value, setValue] = React.useState(3);
+  const [value, setValue] = React.useState(4.5);
   const wrapperRef = useRef(null);
 
   const onDragEnter = () => wrapperRef.current.classList.add('dragover');
@@ -25,6 +25,7 @@ function UserProfile() {
     setFileList(null);
   }
   return (
+    <Container>
     <Stack>
       <Typography my={3} variant='h6' color='primary' fontWeight='bold'>Profile</Typography>
       <Grid container mt={0.1} spacing={4}>
@@ -66,71 +67,153 @@ function UserProfile() {
               </FormGroup>
             </FormControl>
           </Stack>
-          <Button color='danger' sx={{marginTop: '2.1rem',}} variant="contained">
+          <Button color='success' sx={{marginTop: '2.1rem',}} variant="contained">
             Edit Personal Information
           </Button>
         </Grid>
         <Grid item xl={8}>
-          <Typography mb={3} variant='subtitle1' fontWeight='bold'>Reset Changes...</Typography>
+          <Typography marginBottom='59px' variant='subtitle1' fontWeight='bold'>Reset Changes...</Typography>
           {
             changes === null ? <Stack mt={6}>
               <img width='20%' style={{margin: '0 auto'}} src={resentChanges} alt="Reset changes" />
             </Stack> : <Stack>
-              <Grid container pb={1} borderBottom={2} borderColor='#BC002D' spacing={4}>
+              <Grid container pb={1} borderBottom={2}  borderColor='rgba(124, 194, 72, 1)' spacing={4}> 
                 <Grid item xl={4}>
-                  <Typography variant='h6' fontWeight='bold'>Academy Name:</Typography>
+                  <Typography variant='h6' sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl: 'block', md: 'block', sm: 'none', xs: 'none'},
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',
+                  }} fontWeight='bold'>Academy Name:</Typography>
                 </Grid>
                 <Grid item xl={4}>
-                  <Typography variant='h6' fontWeight='bold'>Advertising:</Typography>
+                  <Typography variant='h6' fontWeight='bold' sx={{
+                      color:'black',
+                      fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                      display:{xl: 'block', md: 'block', sm: 'none', xs: 'none'},
+                      fontFamily:'Inter',
+                      fontWeight: 500,
+                      lineHeight: '30px',
+                      wordWrap: 'break-word',
+                      paddingLeft:{xl:0, md:'50px', sm:0, xs:0},
+                      paddingRight:{xl:0, md:'210px', sm:0, xs:0},
+                  }}>Advertising:</Typography>
                 </Grid>
                 <Grid item xl={4}>
-                  <Typography variant='h6' fontWeight='bold'>Actions:</Typography>
+                  <Typography variant='h6' fontWeight='bold'
+                  sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl: 'block', md: 'block', sm: 'none', xs: 'none'},
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',}}
+                  >Actions:</Typography>
                 </Grid>
               </Grid>
-              <Grid mt={2} container spacing={4} alignItems='center'>
-                <Grid item xl={4}>
+              <Grid mt={2} container spacing={4} alignItems={{xl:'center', md:'center', sm:'left', xs:'left'}} sx={{
+                display:'flex',
+                flexDirection:{xl:'row', md:'row', sm:'column', xs:'column'},
+              }}>
+                <Grid item xl={4} sx={{
+                display:'flex',
+                flexDirection:{xl:'row', md:'row', sm:'column', xs:'column'},
+              }}>
                   <Box
                   sx={{
                     display: 'flex',
+                    flexDirection:{xl:'row', md:'row', sm:'column', xs:'column'},
                     justifyContent: 'flex-start',
-                    alignItems: 'center',
+                    alignItems:{xl:'center', md:'center', sm:'left', xs:'left'},
                     gap: '0.5rem',
                   }}
                 >
+                  
+         
+               
+                  <Typography variant='h6' sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl:'none', md:'none', sm:'block', xs:'block'},  
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',
+                  }} fontWeight='bold'>Academy Name:</Typography>
+
                   <Avatar
+                  
                     size="small"
                     src="https://picsum.photos/2000/2000"
-                    sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                    sx={{ border: '2px solid', borderColor: 'rgba(124, 194, 72, 1)' }}
                   />
                   <Typography sx={{cursor: "pointer"}} variant="subtitle1" fontSize={14} fontWeight="bold">
                     Lorem, ipsum dolor.
                   </Typography>
                   </Box>
                 </Grid>
-                <Grid item xl={4}>
+                <Grid item xl={4}>                  
+                <Typography variant='h6' fontWeight='bold' sx={{
+                      color:'black',
+                      fontSize: {xl: '24px',md: '20px', sm: '18px', xs: '16px'},
+                      display:{xl:'none', md:'none', sm:'block', xs:'block'},  
+                      fontFamily:'Inter',
+                      fontWeight: 500,
+                      lineHeight: '30px',
+                      wordWrap: 'break-word',
+                  }}>Advertising:</Typography>
                   <Typography sx={{cursor: "pointer"}} variant="subtitle1" fontSize={14} fontWeight="bold">
                     Lorem, ipsum dolor sit amet consectetur adipisicing.
                   </Typography>
                 </Grid>
                 <Grid item xl={4}>
+                <Typography variant='h6' fontWeight='bold'
+                  sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl:'none', md:'none', sm:'block', xs:'block'},             
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',}}
+                  >Actions:</Typography>
                   <Typography variant='subtitle1' fontWeight='bold'>Comment:</Typography>
                   <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Typography>
                 </Grid>
               </Grid>
-              <Grid mt={2} container spacing={4} alignItems='center'>
+              
+
+              <Grid mt={2} container spacing={4} alignItems={{xl:'center', md:'center', sm:'left', xs:'left'}} 
+              sx={{
+                display:'flex',
+                flexDirection:{xl:'row', md:'row', sm:'column', xs:'column'},
+              }}>
                 <Grid item xl={4}>
                   <Box
                   sx={{
                     display: 'flex',
+                     flexDirection:{xl:'row', md:'row', sm:'column', xs:'column'},
                     justifyContent: 'flex-start',
-                    alignItems: 'center',
+                    alignItems:{xl:'center', md:'center', sm:'left', xs:'left'},
                     gap: '0.5rem',
-                  }}
-                >
+                  }}>
+                   <Typography variant='h6'  sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl:'none', md:'none', sm:'block', xs:'block'},  
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',
+                  }} fontWeight='bold'>Academy Name:</Typography>
                   <Avatar
                     size="small"
                     src="https://picsum.photos/2000/2000"
-                    sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                    sx={{ border: '2px solid', borderColor: 'rgba(124, 194, 72, 1)'}}
                   />
                   <Typography sx={{cursor: "pointer"}} variant="subtitle1" fontSize={14} fontWeight="bold">
                     Lorem, ipsum dolor.
@@ -138,11 +221,31 @@ function UserProfile() {
                   </Box>
                 </Grid>
                 <Grid item xl={4}>
+                <Typography variant='h6' fontWeight='bold' sx={{
+                      color:'black',
+                      fontSize: {xl: '24px',md: '20px', sm: '18px', xs: '16px'},
+                      display:{xl:'none', md:'none', sm:'block', xs:'block'},  
+                      fontFamily:'Inter',
+             
+                      fontWeight: 500,
+                      lineHeight: '30px',
+                      wordWrap: 'break-word',
+                  }}>Advertising:</Typography>
                   <Typography sx={{cursor: "pointer"}} variant="subtitle1" fontSize={14} fontWeight="bold">
                     Lorem, ipsum dolor sit amet consectetur adipisicing.
                   </Typography>
                 </Grid>
                 <Grid item xl={4}>
+                <Typography variant='h6' fontWeight='bold'
+                  sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl:'none', md:'none', sm:'block', xs:'block'},
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',}}
+                  >Actions:</Typography>
                   <Typography variant='subtitle1' fontWeight='bold'>Application:</Typography>
                   <Stack direction="row" alignItems="center" gap={1}>
                     <AccessTimeIcon fontSize='small' />        
@@ -150,39 +253,72 @@ function UserProfile() {
                   </Stack>
                 </Grid>
               </Grid>
-              <Grid mt={2} container spacing={4} alignItems='center'>
+              <Grid mt={2} container spacing={4} alignItems={{xl:'center', md:'center', sm:'left', xs:'left'}} 
+              sx={{
+                display:'flex',
+                flexDirection:{xl:'row', md:'row', sm:'column', xs:'column'},
+              }}>
                 <Grid item xl={4}>
                   <Box
                   sx={{
                     display: 'flex',
+                    flexDirection:{xl:'row', md:'row', sm:'column', xs:'column'},
                     justifyContent: 'flex-start',
-                    alignItems: 'center',
+                    alignItems:{xl:'center', md:'center', sm:'left', xs:'left'},
                     gap: '0.5rem',
                   }}
                 >
+                   <Typography variant='h6' sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl:'none', md:'none', sm:'block', xs:'block'},  
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',
+                  }} fontWeight='bold'>Academy Name:</Typography>
                   <Avatar
                     size="small"
                     src="https://picsum.photos/2000/2000"
-                    sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                    sx={{ border: '2px solid', borderColor: 'rgba(124, 194, 72, 1)' }}
                   />
                   <Typography sx={{cursor: "pointer"}} variant="subtitle1" fontSize={14} fontWeight="bold">
                     Lorem, ipsum dolor.
-                  </Typography>
+                  </Typography> 
                   </Box>
                 </Grid>
                 <Grid item xl={4}>
+                <Typography variant='h6' fontWeight='bold' sx={{
+                      color:'black',
+                      fontSize: {xl: '24px',md: '20px', sm: '18px', xs: '16px'},
+                      display:{xl:'none', md:'none', sm:'block', xs:'block'},  
+                      fontFamily:'Inter',
+                      fontWeight: 500,
+                      lineHeight: '30px',
+                      wordWrap: 'break-word',
+                  }}>Advertising:</Typography>
                   <Typography sx={{cursor: "pointer"}} variant="subtitle1" fontSize={14} fontWeight="bold">
                     Lorem, ipsum dolor sit amet consectetur adipisicing.
                   </Typography>
                 </Grid>
                 <Grid item xl={4}>
+                <Typography variant='h6' fontWeight='bold'
+                  sx={{
+                    color:'black',
+                    fontSize: {xl: '24px', md: '20px', sm: '18px', xs: '16px'},
+                    display:{xl:'none', md:'none', sm:'block', xs:'block'},
+                    fontFamily:'Inter',
+                    fontWeight: 500,
+                    lineHeight: '30px',
+                    wordWrap: 'break-word',}}
+                  >Actions:</Typography>
                   <Typography variant='subtitle1' fontWeight='bold'>Rating:</Typography>
                   <Rating 
                     name="read-only"
                     readOnly
                     value={value}
                     sx={{
-                      color: '#BC002D',
+                      color: 'rgba(254, 102, 69, 1)',
                     }}
                     size='large'
                     precision={0.5}
@@ -197,6 +333,7 @@ function UserProfile() {
         </Grid>
       </Grid>
     </Stack>
+    </Container>
   )
 }
 
