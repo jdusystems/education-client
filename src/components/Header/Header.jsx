@@ -139,7 +139,7 @@ function Header() {
                   </FormControl>
                 </Box>
                 <Box>
-                  <IconButton sx={{ p: 0,  }}>
+                  <IconButton onClick={versus} sx={{ p: 0,  }}>
                     <Avatar alt="Remy Sharp" sx={{bgcolor: '#fff', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}} variant="rounded" src="" >
                       <BarChartIcon sx={{color: '#000'}} />  
                     </Avatar>  

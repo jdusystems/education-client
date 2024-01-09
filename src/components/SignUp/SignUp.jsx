@@ -10,13 +10,14 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
-import logo from "../Assets/img/logo.svg"
+import logo from "../Assets/img/edu-map-logo.png"
 import { register_api_url, baseUrl } from '../../utils/API';
 import axios from 'axios';
+import { Stack } from '@mui/material';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary" align="left"  {...props}>
       {'Copyright © '}
       <Link color="inherit" href="">
         JDU System
@@ -120,31 +121,57 @@ function SignUp() {
   }
 
   return (
-      <Container component="main" maxWidth="xs">
+      <Stack sx={{backgroundColor: 'var(--background-button-secondary-hover, #F7F7F8)', minHeight: '100vh'}}>
+        <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
+        <Box sx={{
+            width: {xl: '465px', md: '465px', sm: '465px', xs: '100%'},
+            marginTop: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+          }}>
+          <Link sx={{cursor: 'pointer', margin:'0 auto'}} onClick={() => {navigate('/home')}} >
+                <img src={logo} width={126} alt="Edu Map" />
+            </Link>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '32px',
+            width: {xl: '465px', md: '465px', sm: '465px', xs: '100%'},
+            marginTop: '53px',
+            borderRadius: '16px', backgroundColor: '#fff'
           }}
         >
-          <Link sx={{cursor: 'pointer'}} onClick={() => {navigate('/home')}} >
-                <img src={logo} width={250} alt="Space os Knowledge" />
-        </Link>
-          <Typography component="h1" variant="h5">
+          
+          <Typography mt={2} component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 3 }}>
+          <Box component="form" noValidate>
             <Grid container spacing={2}>             
               <Grid item xs={12}>
+              <Typography variant='body2' sx={{
+              color: 'var(--Grey-06, #707378)',
+              /* Body 16 / Regular */
+              fontFamily: 'Inter',
+              fontSize: '16px',
+              marginTop: '24px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '24px', /* 150% */
+              letterSpacing: '-0.5px',
+            }}>Telefon raqami</Typography>
                 <TextField
                   required
                   fullWidth
                   id="email"
                   error={errorEmail}  helperText={helperTextEmail} 
-                  label="Email Address"
+                  label="+998"
+                  color='success'
+                  sx={{marginTop: '8px'}}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   name="email"
@@ -152,12 +179,25 @@ function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
+                  <Typography variant='body2' sx={{
+                  color: 'var(--Grey-06, #707378)',
+                  /* Body 16 / Regular */
+                  fontFamily: 'Inter',
+                  fontSize: '16px',
+                  marginTop: '24px',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  lineHeight: '24px', /* 150% */
+                  letterSpacing: '-0.5px' 
+                }}>To'liq ism</Typography>
                 <TextField
                   required
                   fullWidth
                   error={errorFulName}  helperText={helperTextFullName}
                   name="FullName"
+                  sx={{marginTop: '8px'}}
                   value={fullName}
+                  color='success'
                   onChange={(e) => setFullName(e.target.value)}
                   label="FullName"
                   type="FullName"
@@ -166,27 +206,52 @@ function SignUp() {
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
+                  <Typography variant='body2' sx={{
+                  color: 'var(--Grey-06, #707378)',
+                  /* Body 16 / Regular */
+                  fontFamily: 'Inter',
+                  fontSize: '16px',
+                  marginTop: '24px',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  lineHeight: '24px', /* 150% */
+                  letterSpacing: '-0.5px' 
+                }}>Parol</Typography>
                 <TextField
                   autoComplete="password"
                   name="Password"
                   required
                   type='password'
+                  sx={{marginTop: '8px'}}
+                  color='success'
                   error={errorPass1} helperText={helperTextPass1}
                   fullWidth
                   value={pass1}
                   onChange={(e) => setPass1(e.target.value)}
                   id="Password"
                   label="Password"
-                  autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
+                  <Typography variant='body2' sx={{
+                  color: 'var(--Grey-06, #707378)',
+                  /* Body 16 / Regular */
+                  fontFamily: 'Inter',
+                  fontSize: '16px',
+                  marginTop: '24px',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  lineHeight: '24px', /* 150% */
+                  letterSpacing: '-0.5px' 
+                }}>Parolni tasdiqlang</Typography>
                 <TextField
                   required
                   fullWidth
                   id="reset-password"
                   value={pass2}
                   type='password'
+                  color='success'
+                  sx={{marginTop: '8px'}}
                   onChange={(e) => setPass2(e.target.value)}
                   error={errorPass2}  helperText={helperTextPass2}
                   label="Reset Password"
@@ -196,8 +261,8 @@ function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox checked={role} onChange={handleChecked} color="primary" />}
-                  label="Are you an educational institution?"
+                  control={<Checkbox checked={role} onChange={handleChecked} color="success" />}
+                  label="Siz Talim muassasasimisiz"
                 />
               </Grid>
             </Grid>
@@ -206,21 +271,23 @@ function SignUp() {
               fullWidth
               variant="contained"
               onClick={signUp}
-              sx={{ mt: 3, mb: 2 }}
+              color='success'
+              sx={{ mt: '24px', mb: 2, borderRadius: '10px', fontSize: '18px', }}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={() => {navigate('/sign-in')}} href="#" variant="body2">
-                  Already have an account? Sign in
+                <Link onClick={() => {navigate('/sign-in')}} sx={{color: 'var(--Grey-06, #707378)' , fontSize: '14px', cursor: 'pointer'}} variant="body2">
+                  Sign in
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Copyright sx={{ mt: '32px', mb: 4 }} />
       </Container>
+      </Stack>
   );
 }
 

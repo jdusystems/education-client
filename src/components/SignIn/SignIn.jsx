@@ -203,7 +203,7 @@ function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" onClick={() => {navigate("/sign-up")}} sx={{color: 'var(--Grey-06, #707378)' , fontSize: '14px'}} color='primary' variant="body2">
+                <Link onClick={() => {navigate("/sign-up")}} sx={{color: 'var(--Grey-06, #707378)' , fontSize: '14px', cursor: 'pointer'}} color='primary' variant="body2">
                   {"Sign Up"}
                 </Link>
               </Grid>
