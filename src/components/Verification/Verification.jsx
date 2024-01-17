@@ -48,7 +48,7 @@ function Verification() {
 
       function resetCode () {
         setIsAgreeResetCode(false);
-        axios.post(reset_verify_api_url(), {email: verificationEmail}, {headers})
+        axios.post(reset_verify_api_url(), {phone_number: `998${verificationEmail}`}, {headers})
         .then((res) =>{
           const time = setInterval(() => {
             setCount(prev => {
@@ -64,8 +64,8 @@ function Verification() {
       }
 
       function verify () {
-        axios.post(verification_api_url(), {verificationCode: code,
-          email: verificationEmail} , {headers})
+        axios.post(verification_api_url(), {code: code,
+          phone_number: verificationEmail} , {headers})
         .then((res) => {
             console.log(res)
             localStorage.setItem('accessToken', res.data.token); 

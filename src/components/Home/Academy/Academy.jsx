@@ -1,19 +1,12 @@
-import { Grid, Stack, Typography, Card, CardContent, Avatar, Box, Fab, Button, IconButton, Container } from '@mui/material'
+import { Grid, Stack, Typography, Card, CardContent, Box, Button, IconButton, Container, Rating } from '@mui/material'
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import academyLogo from '../../Assets/img/academy-logo.png'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import SendOutlined from '@mui/icons-material/SendOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import TagIcon from '@mui/icons-material/Tag';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 // 
-import { useTheme } from '@mui/material/styles';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
@@ -39,12 +32,6 @@ const images = [
 ];
 
 function Academy() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleStepChange = (step) => {
-    setActiveStep(step);
-  };
 
   const naigate = useNavigate();
 
@@ -90,13 +77,16 @@ function Academy() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -203,13 +193,16 @@ function Academy() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -316,13 +309,16 @@ function Academy() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
