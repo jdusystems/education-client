@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Card, CardContent, Avatar, Box, Fab, Button, IconButton, Container } from '@mui/material'
+import { Grid, Rating, Stack, Typography, Card, CardContent, Avatar, Box, Fab, Button, IconButton, Container } from '@mui/material'
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import SendOutlined from '@mui/icons-material/SendOutlined';
@@ -76,13 +76,16 @@ function Like() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -189,13 +192,16 @@ function Like() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -258,7 +264,7 @@ function Like() {
                       background: '#FFF', 
                     }} 
                   >
-                    <FavoriteBorderIcon sx={{fontSize: '16px'}} color='success' />
+                    <FavoriteBorderIcon sx={{fontSize: '16px', color: '#000'}} />
                   </IconButton>
                     <Button
                       onClick={() => detail()}
@@ -302,13 +308,16 @@ function Like() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -371,7 +380,7 @@ function Like() {
                       background: '#FFF', 
                     }} 
                   >
-                    <FavoriteBorderIcon sx={{fontSize: '16px'}} color='success' />
+                    <FavoriteBorderIcon sx={{fontSize: '16px', color: '#000'}} />
                   </IconButton>
                     <Button
                       onClick={() => detail()}
@@ -415,13 +424,16 @@ function Like() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -484,7 +496,7 @@ function Like() {
                       background: '#FFF', 
                     }} 
                   >
-                    <FavoriteBorderIcon sx={{fontSize: '16px'}} color='success' />
+                    <FavoriteBorderIcon sx={{fontSize: '16px', color: '#000'}} />
                   </IconButton>
                     <Button
                       onClick={() => detail()}

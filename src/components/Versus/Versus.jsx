@@ -42,7 +42,7 @@ function Versus() {
   return (
     <Stack>
         <Container>
-        <Grid container spacing={3} marginTop='32px' alignItems='center'>
+        <Grid container spacing={3} marginTop='8px' alignItems='center'>
             <Grid item mt={3} xl={6} md={6} sm={12} xs={12}>
                 <Typography variant='h6' sx={{
                     color: '#000',
@@ -125,7 +125,7 @@ function Versus() {
                             </CardActionArea>
                             <CardActions>
                                 <Button  size="small" sx={{
-                                    padding: '12px 16px',
+                                    padding: '8px 16px',
                                     marginTop: '10px',
                                     borderRadius: '10px',
                                     border: '1px solid #E2E3E6',
@@ -170,7 +170,7 @@ function Versus() {
                             </CardActionArea>
                             <CardActions>
                                 <Button  size="small" sx={{
-                                    padding: '12px 16px',
+                                    padding: '8px 16px',
                                     marginTop: '10px',
                                     borderRadius: '10px',
                                     border: '1px solid #E2E3E6',
@@ -215,7 +215,7 @@ function Versus() {
                             </CardActionArea>
                             <CardActions>
                                 <Button  size="small" sx={{
-                                    padding: '12px 16px',
+                                    padding: '8px 16px',
                                     marginTop: '10px',
                                     borderRadius: '10px',
                                     border: '1px solid #E2E3E6',
@@ -279,7 +279,7 @@ function Versus() {
                             </CardActionArea>
                             <CardActions>
                                 <Button  size="small" sx={{
-                                    padding: '12px 16px',
+                                    padding: '8px 16px',
                                     marginTop: '10px',
                                     borderRadius: '10px',
                                     border: '1px solid #E2E3E6',
@@ -324,7 +324,7 @@ function Versus() {
                             </CardActionArea>
                             <CardActions>
                                 <Button  size="small" sx={{
-                                    padding: '12px 16px',
+                                   padding: '8px 16px',
                                     marginTop: '10px',
                                     borderRadius: '10px',
                                     border: '1px solid #E2E3E6',
@@ -369,7 +369,7 @@ function Versus() {
                             </CardActionArea>
                             <CardActions>
                                 <Button  size="small" sx={{
-                                    padding: '12px 16px',
+                                    padding: '8px 16px',
                                     marginTop: '10px',
                                     borderRadius: '10px',
                                     border: '1px solid #E2E3E6',

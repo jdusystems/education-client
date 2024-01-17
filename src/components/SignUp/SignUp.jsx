@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 import logo from "../Assets/img/edu-map-logo.png"
-import { register_api_url, baseUrl } from '../../utils/API';
+import { send_sms_api_url, baseUrl } from '../../utils/API';
 import axios from 'axios';
 import { Stack } from '@mui/material';
 
@@ -51,11 +51,11 @@ function SignUp() {
       "Access-Control-Allow-Origin": baseUrl
     }
     const formData = new FormData();
-    formData.append('email', email);
-    formData.append('fullname', fullName);
+    formData.append('phone_number', `998${email}`);
+    formData.append('name', fullName);
     formData.append('password', pass1);
     formData.append('password_confirmation', pass2);
-    formData.append('user_role', role === true ? "school" : "user");
+    formData.append('role', role === true ? "admin" : "user");
 
     function handleChecked () {
       if (role) {
@@ -66,11 +66,11 @@ function SignUp() {
     }
 
     function signUp () {
-      if (email !== "" && fullName !== "" && pass1 !== "" && pass2 !== "" && pass1 === pass2 && pass1.length >= 6 && email.includes('@')){
-          axios.post(register_api_url(), formData, {headers})
+      if (email !== "" && fullName !== "" && pass1 !== "" && pass2 !== "" && pass1 === pass2 && pass1.length >= 6){
+          axios.post(send_sms_api_url(), formData, {headers})
           .then((res) => {
             console.log(res.data)
-          //  navigate("/verification", {state: {email: email}})
+           navigate("/verification", {state: {email: email}})
           })
           .catch((err) =>{
             console.log(err);
@@ -80,10 +80,7 @@ function SignUp() {
           })
       } else {
           if (email === ""){
-              setHelperTextEmail("Enter your email...");
-              setErrorEmail(true);
-          } else if (!email.includes('@')){
-              setHelperTextEmail("Include the @ sign in the email...");
+              setHelperTextEmail("Enter your phone...");
               setErrorEmail(true);
           } else{
               setHelperTextEmail("");
