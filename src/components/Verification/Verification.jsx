@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ClearIcon from '@mui/icons-material/Clear';
 import ReactCodeInput from 'react-verification-code-input';
-import {Paper, Stack, Typography, Button, Box } from '@mui/material';
+import {Paper, Stack, Typography, Button, Box, Container } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { verification_api_url, baseUrl, reset_verify_api_url } from '../../utils/API';
 import axios from 'axios';
@@ -93,6 +93,7 @@ function Verification() {
             </Box>
         </Paper>
     </Stack>
+
   )
 }
 
