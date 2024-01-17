@@ -1,4 +1,4 @@
-import { Grid, Typography, Card, CardContent, Avatar, Box, Fab, Button, IconButton, Stack } from '@mui/material'
+import { Grid,Rating,Typography, Card, CardContent, Avatar, Box, Fab, Button, IconButton, Stack } from '@mui/material'
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import academyLogo from '../../Assets/img/academy-logo.png'
@@ -6,6 +6,7 @@ import SendOutlined from '@mui/icons-material/SendOutlined';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DeleteIcon from '@mui/icons-material/Delete';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useNavigate } from "react-router-dom";
 
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -18,6 +19,8 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import TagIcon from '@mui/icons-material/Tag';
+import CloseIcon from "@mui/icons-material/Close";
+
 // 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -46,589 +49,643 @@ const images = [
 ];
 
 function MyAdvertising() {
+    const navigate = useNavigate();
     const [activeStep, setActiveStep] = useState(0);
     const maxSteps = images.length;
     const theme = useTheme();
     const handleStepChange = (step) => {
         setActiveStep(step);
+            
     };
+
+    
+    const [rating, setRating] = React.useState(1);
+
+    function detail() {
+        navigate("/detail");
+    }
 
   return (
     <Stack>
         <Typography variant='h4'>My Advertising</Typography>
         <Grid container mt={3} spacing={1}>
             <Grid item mt={1} xl={4}>
-            <Card            
-                variant="outlined"
-                sx={{
-                borderRadius: '5px',
-                height: '100%',
-                position: 'relative',
-                boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
-                '&:hover': {
-                    boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
-                },
-                }}
-            >
-                <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Box
+            <Card
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    border: "3px solid var(--border-base-surface, #FFF)",
+                    background: "#F5F5F5",
+                    boxShadow:
+                      "0px 1px 3px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px -2px rgba(0, 0, 0, 0.04)",
+                    padding: "24px",
+                    "&:hover": {
+                    boxShadow: "0px 10px 10px -10px rgba(0,0,0,0.75)",
+                    },
+                  }}
+                >
+                  <Button
                     sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center',
-                    gap: '0.5rem',
+                      marginLeft:'85%',
+                      paddingBottom: "20px",
                     }}
-                >
-                    <Avatar
-                    size="small"
-                    src="https://picsum.photos/2300/2300"
-                    sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                  >
+                    <CloseIcon />
+                  </Button>
+                  <CardContent sx={{ padding: 0 }}>
+                    <img
+                      style={{ width: "100%" }}
+                      src={images[2].imgPath}
+                      alt=""
                     />
-                    <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                    Lorem, ipsum dolor.
-                    </Typography>
-                </Box>
-                </CardContent>
-                <CardContent>
-                <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-                    <AutoPlaySwipeableViews
-                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                    index={activeStep}
-                    onChangeIndex={handleStepChange}
-                    enableMouseEvents
-                    >
-                    {images.map((step, index) => (
-                        <div key={step.label}>
-                        {Math.abs(activeStep - index) <= 2 ? (
-                            <Box
-                            component="img"
-                            sx={{
-                                display: 'block',
-                                maxWidth: '100%',
-                                overflow: 'hidden',
-                                width: '100%',
-                            }}
-                            src={step.imgPath}
-                            alt={step.label}
-                            />
-                        ) : null}
-                        </div>
-                    ))}
-                    </AutoPlaySwipeableViews>
-                </Box>
-                </CardContent>   
-                <CardContent sx={{marginTop: '-20px'}}>
-                <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                    <AccessTimeIcon color='grey' fontSize='small' />        
-                    <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
-                </Stack>
-                </CardContent>    
-                <CardContent sx={{marginTop: '-20px'}}>
-                <Box>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Region"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Toshkent Shaxri
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="City"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Shayxontohur tumani
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Phone"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    +998787774747
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Institution"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Training Center
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Direction"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    IT
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Subject"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Frontend Developer
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Price"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    1000000 - 1500000 so'm
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Print"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    120 connections
-                    </Fab>
-                </Box>
-                </CardContent>
-                <CardContent>
-                <Typography variant='subtitle2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, atque.
-                </Typography>
+                  </CardContent>
+                  <CardContent
+                    sx={{
+                      padding: 0,
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                      <Rating
+                        name="read-only"
+                        readOnly
+                        value={rating}
+                        sx={{
+                          color: "rgba(254, 102, 69, 1)",
+                          marginRight: {
+                            xl: "85px",
+                            md: "55px",
+                            sm: "90px",
+                            xs: "75px",
+                          },
+                          marginLeft: 0,
+                        }}
+                        size="medium"
+                        precision={0.5}
+                        onChange={(event, newRating) => {
+                          setRating(newRating);
+                        }}
+                      />
 
-                </CardContent>
-                <CardContent
-                orientation="horizontal"
-                sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
+                      <RemoveRedEyeIcon color="grey" fontSize="small" />
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: "#707378",
+                          fontSize: {
+                            xl: "16px",
+                            md: "16px",
+                            sm: "14px",
+                            xs: "12px",
+                          },
+                        }}
+                      >
+                        123 views
+                      </Typography>
+                    </Stack>
+                  </CardContent>
+                  <CardContent sx={{ padding: 0 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: "#000",
+                        fontFamily: "Inter",
+                        fontSize: {
+                          xl: "20px",
+                          md: "16px",
+                          sm: "18px",
+                          xs: "16px",
+                        },
+                        mt:{xl:'10px', md:'10px', sm:'5px', xs:'' },
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "30px" /* 150% */,
+                        letterSpacing: "-0.8px",
+                        "--max-lines": 1,
+                        overflow: "hidden",
+
+                        display: "-webkit-box",
+                        "-webkit-box-orient": "vertical",
+                        "-webkit-line-clamp": "var(--max-lines)",
+                      }}
+                    >
+                      Frontend
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "var(--Grey-06, #707378)",
+                        fontFamily: "Inter",
+                        fontSize: {
+                          xl: "18px",
+                          md: "14px",
+                          sm: "16px",
+                          xs: "14px",
+                        },
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        marginTop: "8px",
+                        lineHeight: "30px" /* 150% */,
+                        letterSpacing: "-0.8px",
+                        "--max-lines": 3,
+                        overflow: "hidden",
+
+                        display: "-webkit-box",
+                        "-webkit-box-orient": "vertical",
+                        "-webkit-line-clamp": "var(--max-lines)",
+                      }}
+                      variant="subtitle2"
+                    >
+                      Ushbu tizim 8-sinf o‘quvchilarining “Informatika va
+                      axborot texnologiyalari” fanidan....
+                    </Typography>
+                  </CardContent>
+                  <CardContent
+                    orientation="horizontal"
+                    sx={{
+                      alignItems: "center",
+                      mt: "38px",
+                      position: "relative",
+                      padding: 0,
+                      paddingBottom: "8px !important",
+                    }}
+                  >
+                    <Box sx={{ width: 0, display: "flex", gap: "8px" }}>
+                      <IconButton
+                        sx={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          background: "#FFF",
+                        }}
+                      >
+                        <SendOutlined
+                          sx={{ fontSize: "16px", color: "#000" }}
+                        />
+                      </IconButton>
+                      <IconButton
+                        sx={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          background: "#FFF",
+                        }}
+                      >
+                        <FavoriteBorderIcon
+                          sx={{ fontSize: "16px", color: "#000" }}
+                        />
+                      </IconButton>
+                      <Button
+                        onClick={() => detail()}
+                        sx={{
+                          position: "absolute",
+                          right: 0,
+                          top: { xl: -5, md: -1, sm: -3, xs: -1 },
+                          height: { xl: 40, md: 32, sm: 40, xs: 32 },
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          padding: {
+                            xl: "8px 16px",
+                            md: "6px 12px",
+                            sm: "6px 12px",
+                            xs: "6px 12px",
+                          },
+                          fontSize: {
+                            xl: "16px",
+                            md: "12px",
+                            sm: "12px",
+                            xs: "12px",
+                          },
+                          textTransform: "capitalize",
+                          backgroundColor: "transparent",
+                          letterSpacing: "-0.5px",
+                          color: "black",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        color="success"
+                        variant="contained"
+                      >
+                        Ko’proq ma’lumot
+                      </Button>
+                    </Box>
+                  </CardContent>
+                </Card>
+            </Grid>
+
+
+            <Grid item mt={1} xl={4}>
+            <Card
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    border: "3px solid var(--border-base-surface, #FFF)",
+                    background: "#F5F5F5",
+                    boxShadow:
+                      "0px 1px 3px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px -2px rgba(0, 0, 0, 0.04)",
+                    padding: "24px",
+                    "&:hover": {
+                    boxShadow: "0px 10px 10px -10px rgba(0,0,0,0.75)",
+                    },
+                  }}
                 >
-                <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
-                    <IconButton
-                    variant="plain"
-                    color="primary"
-                    size="sm"
+                  <Button
+                    sx={{
+                      marginLeft:'85%',
+                      paddingBottom: "20px",
+                    }}
+                  >
+                    <CloseIcon />
+                  </Button>
+                  <CardContent sx={{ padding: 0 }}>
+                    <img
+                      style={{ width: "100%" }}
+                      src={images[2].imgPath}
+                      alt=""
+                    />
+                  </CardContent>
+                  <CardContent
+                    sx={{
+                      padding: 0,
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                      <Rating
+                        name="read-only"
+                        readOnly
+                        value={rating}
+                        sx={{
+                          color: "rgba(254, 102, 69, 1)",
+                          marginRight: {
+                            xl: "85px",
+                            md: "55px",
+                            sm: "90px",
+                            xs: "75px",
+                          },
+                          marginLeft: 0,
+                        }}
+                        size="medium"
+                        precision={0.5}
+                        onChange={(event, newRating) => {
+                          setRating(newRating);
+                        }}
+                      />
+
+                      <RemoveRedEyeIcon color="grey" fontSize="small" />
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: "#707378",
+                          fontSize: {
+                            xl: "16px",
+                            md: "16px",
+                            sm: "14px",
+                            xs: "12px",
+                          },
+                        }}
+                      >
+                        123 views
+                      </Typography>
+                    </Stack>
+                  </CardContent>
+                  <CardContent sx={{ padding: 0 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: "#000",
+                        fontFamily: "Inter",
+                        fontSize: {
+                          xl: "20px",
+                          md: "16px",
+                          sm: "18px",
+                          xs: "16px",
+                        },
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "30px" /* 150% */,
+                        letterSpacing: "-0.8px",
+                        "--max-lines": 1,
+                        overflow: "hidden",
+
+                        display: "-webkit-box",
+                        "-webkit-box-orient": "vertical",
+                        "-webkit-line-clamp": "var(--max-lines)",
+                      }}
                     >
-                    <SendOutlined />
-                    </IconButton>
-                    <IconButton
-                    variant="plain"
-                    color="primary"
-                    size="sm"
+                      Frontend
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "var(--Grey-06, #707378)",
+                        fontFamily: "Inter",
+                        fontSize: {
+                          xl: "18px",
+                          md: "14px",
+                          sm: "16px",
+                          xs: "14px",
+                        },
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        marginTop: "8px",
+                        lineHeight: "30px" /* 150% */,
+                        letterSpacing: "-0.8px",
+                        "--max-lines": 3,
+                        overflow: "hidden",
+
+                        display: "-webkit-box",
+                        "-webkit-box-orient": "vertical",
+                        "-webkit-line-clamp": "var(--max-lines)",
+                      }}
+                      variant="subtitle2"
                     >
-                    <FavoriteBorderIcon />
-                        </IconButton>
-                        <SpeedDial
-                            ariaLabel="SpeedDial basic example"
-                            color='danger'
-                            sx={{ position: 'absolute', bottom: 22, right: 20,'& .MuiFab-primary': { width: 50, height: 50 },
-                            '& .MuiFab-primary': { backgroundColor: '#BC002D' } }}
-                            icon={<SpeedDialIcon />}
-                        >
-                                <SpeedDialAction
-                                    icon={<RemoveRedEyeIcon />}
-                                    tooltipTitle='Print'
-                                />
-                                <SpeedDialAction
-                                    icon={<EditIcon />}
-                                    tooltipTitle='Edit'
-                                />
-                                <SpeedDialAction
-                                    icon={<DeleteIcon />}
-                                    tooltipTitle='Delete'
-                                />
-                        </SpeedDial>
-                </Box>
-                </CardContent>
-            </Card>
+                      Ushbu tizim 8-sinf o‘quvchilarining “Informatika va
+                      axborot texnologiyalari” fanidan....
+                    </Typography>
+                  </CardContent>
+                  <CardContent
+                    orientation="horizontal"
+                    sx={{
+                      alignItems: "center",
+                      mt: "38px",
+                      position: "relative",
+                      padding: 0,
+                      paddingBottom: "8px !important",
+                    }}
+                  >
+                    <Box sx={{ width: 0, display: "flex", gap: "8px" }}>
+                      <IconButton
+                        sx={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          background: "#FFF",
+                        }}
+                      >
+                        <SendOutlined
+                          sx={{ fontSize: "16px", color: "#000" }}
+                        />
+                      </IconButton>
+                      <IconButton
+                        sx={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          background: "#FFF",
+                        }}
+                      >
+                        <FavoriteBorderIcon
+                          sx={{ fontSize: "16px", color: "#000" }}
+                        />
+                      </IconButton>
+                      <Button
+                        onClick={() => detail()}
+                        sx={{
+                          position: "absolute",
+                          right: 0,
+                          top: { xl: -5, md: -1, sm: -3, xs: -1 },
+                          height: { xl: 40, md: 32, sm: 40, xs: 32 },
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          padding: {
+                            xl: "8px 16px",
+                            md: "6px 12px",
+                            sm: "6px 12px",
+                            xs: "6px 12px",
+                          },
+                          fontSize: {
+                            xl: "16px",
+                            md: "12px",
+                            sm: "12px",
+                            xs: "12px",
+                          },
+                          textTransform: "capitalize",
+                          backgroundColor: "transparent",
+                          letterSpacing: "-0.5px",
+                          color: "black",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        color="success"
+                        variant="contained"
+                      >
+                        Ko’proq ma’lumot
+                      </Button>
+                    </Box>
+                  </CardContent>
+                </Card>
             </Grid>
             <Grid item mt={1} xl={4}>
-            <Card            
-                variant="outlined"
-                sx={{
-                borderRadius: '5px',
-                height: '100%',
-                position: 'relative',
-                boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
-                '&:hover': {
-                    boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
-                },
-                }}
-            >
-                <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Box
+            <Card
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    border: "3px solid var(--border-base-surface, #FFF)",
+                    background: "#F5F5F5",
+                    boxShadow:
+                      "0px 1px 3px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px -2px rgba(0, 0, 0, 0.04)",
+                    padding: "24px",
+                    "&:hover": {
+                    boxShadow: "0px 10px 10px -10px rgba(0,0,0,0.75)",
+                    },
+                  }}
+                >
+                  <Button
                     sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center',
-                    gap: '0.5rem',
+                      marginLeft:'85%',
+                      paddingBottom: "20px",
                     }}
-                >
-                    <Avatar
-                    size="small"
-                    src="https://picsum.photos/2300/2300"
-                    sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                  >
+                    <CloseIcon />
+                  </Button>
+                  <CardContent sx={{ padding: 0 }}>
+                    <img
+                      style={{ width: "100%" }}
+                      src={images[2].imgPath}
+                      alt=""
                     />
-                    <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                    Lorem, ipsum dolor.
-                    </Typography>
-                </Box>
-                </CardContent>
-                <CardContent>
-                <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-                    <AutoPlaySwipeableViews
-                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                    index={activeStep}
-                    onChangeIndex={handleStepChange}
-                    enableMouseEvents
-                    >
-                    {images.map((step, index) => (
-                        <div key={step.label}>
-                        {Math.abs(activeStep - index) <= 2 ? (
-                            <Box
-                            component="img"
-                            sx={{
-                                display: 'block',
-                                maxWidth: '100%',
-                                overflow: 'hidden',
-                                width: '100%',
-                            }}
-                            src={step.imgPath}
-                            alt={step.label}
-                            />
-                        ) : null}
-                        </div>
-                    ))}
-                    </AutoPlaySwipeableViews>
-                </Box>
-                </CardContent>   
-                <CardContent sx={{marginTop: '-20px'}}>
-                <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                    <AccessTimeIcon color='grey' fontSize='small' />        
-                    <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
-                </Stack>
-                </CardContent>    
-                <CardContent sx={{marginTop: '-20px'}}>
-                <Box>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Region"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Toshkent Shaxri
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="City"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Shayxontohur tumani
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Phone"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    +998787774747
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Institution"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Training Center
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Direction"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    IT
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Subject"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Frontend Developer
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Price"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    1000000 - 1500000 so'm
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Print"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    120 connections
-                    </Fab>
-                </Box>
-                </CardContent>
-                <CardContent>
-                <Typography variant='subtitle2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, atque.
-                </Typography>
-
-                </CardContent>
-                <CardContent
-                orientation="horizontal"
-                sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
-                >
-                <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
-                    <IconButton
-                    variant="plain"
-                    color="primary"
-                    size="sm"
-                    >
-                    <SendOutlined />
-                    </IconButton>
-                    <IconButton
-                    variant="plain"
-                    color="primary"
-                    size="sm"
-                    >
-                    <FavoriteBorderIcon />
-                        </IconButton>
-                        <SpeedDial
-                            ariaLabel="SpeedDial basic example"
-                            color='danger'
-                            sx={{ position: 'absolute', bottom: 22, right: 20,'& .MuiFab-primary': { width: 50, height: 50 },
-                            '& .MuiFab-primary': { backgroundColor: '#BC002D' } }}
-                            icon={<SpeedDialIcon />}
-                        >
-                                <SpeedDialAction
-                                    icon={<RemoveRedEyeIcon />}
-                                    tooltipTitle='Print'
-                                />
-                                <SpeedDialAction
-                                    icon={<EditIcon />}
-                                    tooltipTitle='Edit'
-                                />
-                                <SpeedDialAction
-                                    icon={<DeleteIcon />}
-                                    tooltipTitle='Delete'
-                                />
-                        </SpeedDial>
-                </Box>
-                </CardContent>
-            </Card>
-            </Grid>
-            <Grid item mt={1} xl={4}>
-            <Card            
-                variant="outlined"
-                sx={{
-                borderRadius: '5px',
-                height: '100%',
-                position: 'relative',
-                boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
-                '&:hover': {
-                    boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
-                },
-                }}
-            >
-                <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Box
+                  </CardContent>
+                  <CardContent
                     sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center',
-                    gap: '0.5rem',
+                      padding: 0,
+                      display: "flex",
+                      justifyContent: "space-around",
                     }}
-                >
-                    <Avatar
-                    size="small"
-                    src="https://picsum.photos/2300/2300"
-                    sx={{ border: '2px solid', borderColor: '#BC002D' }}
-                    />
-                    <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                    Lorem, ipsum dolor.
-                    </Typography>
-                </Box>
-                </CardContent>
-                <CardContent>
-                <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-                    <AutoPlaySwipeableViews
-                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                    index={activeStep}
-                    onChangeIndex={handleStepChange}
-                    enableMouseEvents
-                    >
-                    {images.map((step, index) => (
-                        <div key={step.label}>
-                        {Math.abs(activeStep - index) <= 2 ? (
-                            <Box
-                            component="img"
-                            sx={{
-                                display: 'block',
-                                maxWidth: '100%',
-                                overflow: 'hidden',
-                                width: '100%',
-                            }}
-                            src={step.imgPath}
-                            alt={step.label}
-                            />
-                        ) : null}
-                        </div>
-                    ))}
-                    </AutoPlaySwipeableViews>
-                </Box>
-                </CardContent>   
-                <CardContent sx={{marginTop: '-20px'}}>
-                <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                    <AccessTimeIcon color='grey' fontSize='small' />        
-                    <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
-                </Stack>
-                </CardContent>    
-                <CardContent sx={{marginTop: '-20px'}}>
-                <Box>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Region"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Toshkent Shaxri
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="City"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Shayxontohur tumani
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Phone"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    +998787774747
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Institution"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Training Center
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Direction"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    IT
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Subject"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    Frontend Developer
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Price"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    1000000 - 1500000 so'm
-                    </Fab>
-                    <Fab
-                    sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                    variant="extended"
-                    size="small"
-                    aria-label="Print"
-                    >
-                    <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                    120 connections
-                    </Fab>
-                </Box>
-                </CardContent>
-                <CardContent>
-                <Typography variant='subtitle2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, atque.
-                </Typography>
+                  >
+                    <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                      <Rating
+                        name="read-only"
+                        readOnly
+                        value={rating}
+                        sx={{
+                          color: "rgba(254, 102, 69, 1)",
+                          marginRight: {
+                            xl: "85px",
+                            md: "55px",
+                            sm: "90px",
+                            xs: "75px",
+                          },
+                          marginLeft: 0,
+                        }}
+                        size="medium"
+                        precision={0.5}
+                        onChange={(event, newRating) => {
+                          setRating(newRating);
+                        }}
+                      />
 
-                </CardContent>
-                <CardContent
-                orientation="horizontal"
-                sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
-                >
-                <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
-                    <IconButton
-                    variant="plain"
-                    color="primary"
-                    size="sm"
+                      <RemoveRedEyeIcon color="grey" fontSize="small" />
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: "#707378",
+                          fontSize: {
+                            xl: "16px",
+                            md: "16px",
+                            sm: "14px",
+                            xs: "12px",
+                          },
+                        }}
+                      >
+                        123 views
+                      </Typography>
+                    </Stack>
+                  </CardContent>
+                  <CardContent sx={{ padding: 0 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: "#000",
+                        fontFamily: "Inter",
+                        fontSize: {
+                          xl: "20px",
+                          md: "16px",
+                          sm: "18px",
+                          xs: "16px",
+                        },
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "30px" /* 150% */,
+                        letterSpacing: "-0.8px",
+                        "--max-lines": 1,
+                        overflow: "hidden",
+
+                        display: "-webkit-box",
+                        "-webkit-box-orient": "vertical",
+                        "-webkit-line-clamp": "var(--max-lines)",
+                      }}
                     >
-                    <SendOutlined />
-                    </IconButton>
-                    <IconButton
-                    variant="plain"
-                    color="primary"
-                    size="sm"
+                      Frontend
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "var(--Grey-06, #707378)",
+                        fontFamily: "Inter",
+                        fontSize: {
+                          xl: "18px",
+                          md: "14px",
+                          sm: "16px",
+                          xs: "14px",
+                        },
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        marginTop: "8px",
+                        lineHeight: "30px" /* 150% */,
+                        letterSpacing: "-0.8px",
+                        "--max-lines": 3,
+                        overflow: "hidden",
+
+                        display: "-webkit-box",
+                        "-webkit-box-orient": "vertical",
+                        "-webkit-line-clamp": "var(--max-lines)",
+                      }}
+                      variant="subtitle2"
                     >
-                    <FavoriteBorderIcon />
-                        </IconButton>
-                        <SpeedDial
-                            ariaLabel="SpeedDial basic example"
-                            color='danger'
-                            sx={{ position: 'absolute', bottom: 22, right: 20,'& .MuiFab-primary': { width: 50, height: 50 },
-                            '& .MuiFab-primary': { backgroundColor: '#BC002D' } }}
-                            icon={<SpeedDialIcon />}
-                        >
-                                <SpeedDialAction
-                                    icon={<RemoveRedEyeIcon />}
-                                    tooltipTitle='Print'
-                                />
-                                <SpeedDialAction
-                                    icon={<EditIcon />}
-                                    tooltipTitle='Edit'
-                                />
-                                <SpeedDialAction
-                                    icon={<DeleteIcon />}
-                                    tooltipTitle='Delete'
-                                />
-                        </SpeedDial>
-                </Box>
-                </CardContent>
-            </Card>
+                      Ushbu tizim 8-sinf o‘quvchilarining “Informatika va
+                      axborot texnologiyalari” fanidan....
+                    </Typography>
+                  </CardContent>
+                  <CardContent
+                    orientation="horizontal"
+                    sx={{
+                      alignItems: "center",
+                      mt: "38px",
+                      position: "relative",
+                      padding: 0,
+                      paddingBottom: "8px !important",
+                    }}
+                  >
+                    <Box sx={{ width: 0, display: "flex", gap: "8px" }}>
+                      <IconButton
+                        sx={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          background: "#FFF",
+                        }}
+                      >
+                        <SendOutlined
+                          sx={{ fontSize: "16px", color: "#000" }}
+                        />
+                      </IconButton>
+                      <IconButton
+                        sx={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          background: "#FFF",
+                        }}
+                      >
+                        <FavoriteBorderIcon
+                          sx={{ fontSize: "16px", color: "#000" }}
+                        />
+                      </IconButton>
+                      <Button
+                        onClick={() => detail()}
+                        sx={{
+                          position: "absolute",
+                          right: 0,
+                          top: { xl: -5, md: -1, sm: -3, xs: -1 },
+                          height: { xl: 40, md: 32, sm: 40, xs: 32 },
+                          borderRadius: "10px",
+                          border: "1px solid var(--Grey-02, #E2E3E6)",
+                          padding: {
+                            xl: "8px 16px",
+                            md: "6px 12px",
+                            sm: "6px 12px",
+                            xs: "6px 12px",
+                          },
+                          fontSize: {
+                            xl: "16px",
+                            md: "12px",
+                            sm: "12px",
+                            xs: "12px",
+                          },
+                          textTransform: "capitalize",
+                          backgroundColor: "transparent",
+                          letterSpacing: "-0.5px",
+                          color: "black",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        color="success"
+                        variant="contained"
+                      >
+                        Ko’proq ma’lumot
+                      </Button>
+                    </Box>
+                  </CardContent>
+                </Card>
             </Grid>
         </Grid>
     </Stack>

@@ -1,4 +1,4 @@
-import { Grid, Stack, FormControl, FormGroup, TextField, Typography, Button } from '@mui/material'
+import { Grid, Stack, FormControl, FormGroup, TextField, Typography, Button, Container } from '@mui/material'
 import React from 'react'
 import { useState } from 'react';
 
@@ -8,6 +8,7 @@ function Account() {
     const [resetPassword, setResetPassword] = useState('');
 
   return (
+    <Container>
     <Stack>
         <Typography my={3} variant='h6' color='primary' fontWeight='bold'>Account</Typography>
         <Grid container>
@@ -23,12 +24,13 @@ function Account() {
                         <TextField value={resetPassword} onChange={(e) => {setResetPassword(e.target.value)}} helperText='Please enter Reset password' color='primary' label='Reset Password' required margin='normal' />
                     </FormGroup>
                 </FormControl>
-                <Button sx={{marginTop: '2.1rem',}} variant="contained" color="danger">
+                <Button sx={{marginTop: '2.1rem',}} variant="contained" color="success">
                 Edit Account
                 </Button>
             </Grid>
         </Grid>
     </Stack>
+    </Container>
   )
 }
 

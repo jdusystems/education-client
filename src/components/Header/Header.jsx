@@ -13,7 +13,7 @@ function Header() {
   const [language, setLanguage] = useState('Eng');
   const [isAgreeCategory, setIsAgreeCategory] = useState('none');
   const navigate = useNavigate();
-  const [role, setRole] = useState(1);
+  const [role, setRole] = useState(2);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [userMenu, setUserMenu] = useState([]);

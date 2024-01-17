@@ -42,7 +42,7 @@ function Dashboard() {
                 series={[
                     {
                     data: [200, 125, 300, 343, 400, 121],
-                    color: '#BC002D'
+                    color: 'rgba(124, 194, 72, 1)',
                     },
                 ]}
                 width={700}
@@ -52,7 +52,7 @@ function Dashboard() {
             <Grid item xl={3} height={230} paddingBottom={4} boxShadow={4} borderRadius={3}>
                 <Typography variant='h5' color='primary' >All Applications</Typography>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                    <ReceiptLongIcon sx={{fontSize: 70, marginLeft: '-15px', paddingTop: '25px'}} color='danger' />
+                    <ReceiptLongIcon sx={{fontSize: 70, marginLeft: '-15px', paddingTop: '25px'}} color='success'/>
                     <Typography mt={3} variant='h4'>1235 units</Typography>
                 </Stack> 
                 <Typography mt={2}>From May 19, 2020</Typography>
