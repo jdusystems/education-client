@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../Assets/img/logo.svg';
+import logo from '../Assets/img/edu-map-logo.png';
 import ClearIcon from '@mui/icons-material/Clear';
 import ReactCodeInput from 'react-verification-code-input';
 import {Paper, Stack, Grid, FormControl, Typography, FormGroup, TextField, Button, FormLabel, Box } from '@mui/material';
@@ -130,10 +130,10 @@ function ChangePassword() {
                             <Typography variant='h4' gutterBottom sx={{color: 'black', marginTop: '1rem'}}>Parolni tiklash</Typography>
                         </FormLabel>
                         <FormGroup size="small">
-                            <TextField color='primary' error={errorPass1} helperText={helperTextPass1} value={pass1} onChange={(e) => setPass1(e.target.value)} label='New Password' type='password' margin='normal' required />
-                            <TextField color='primary' error={errorPass2} helperText={helperTextpass2} value={pass2} onChange={(e) => setPass2(e.target.value)} label='Reset Password' type='password' margin='normal' required />
+                            <TextField color='success' error={errorPass1} helperText={helperTextPass1} value={pass1} onChange={(e) => setPass1(e.target.value)} label='New Password' type='password' margin='normal' required />
+                            <TextField color='success' error={errorPass2} helperText={helperTextpass2} value={pass2} onChange={(e) => setPass2(e.target.value)} label='Reset Password' type='password' margin='normal' required />
                         </FormGroup>
-                        <Button variant='contained' color='primary' onClick={enterChangePassword}  sx={{ margin: "1rem 0"}}>Parolni O'zgartirish</Button>
+                        <Button variant='contained' color='success' onClick={enterChangePassword}  sx={{ margin: "1rem 0"}}>Parolni O'zgartirish</Button>
                       </FormControl>
                     </> :
                     <>

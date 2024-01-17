@@ -7,14 +7,15 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import logo from '../Assets/img/logo.svg'
+import logo from '../Assets/img/edu-map-logo.png'
 import { useNavigate } from 'react-router-dom';
 import { baseUrl, login_api_url, forgot_password_api_url } from '../../utils/API';
 import axios from 'axios';
+import { Stack } from '@mui/material';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary" align="left" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="">
         JDU System
@@ -101,42 +102,78 @@ function SignIn() {
     }
 
   return (
-      <Container component="main" maxWidth="xs">
+      <Stack sx={{backgroundColor: 'var(--background-button-secondary-hover, #F7F7F8)', minHeight: '100vh'}}>
+        <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
+        <Box sx={{
+            width: {xl: '465px', md: '465px', sm: '465px', xs: '100%'},
+            marginTop: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+          }}>
+            <Link sx={{cursor: 'pointer', margin:'0 auto'}} onClick={() => {navigate('/home')}} >
+                <img src={logo} width={126} alt="Edu Map" />
+            </Link>
+        </Box>
+        
+        <Box
+          sx={{
+            display: 'flex',
+            width: {xl: '465px', md: '465px', sm: '465px', xs: '100%'},
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '32px',
+            marginTop: '53px',
+            borderRadius: '16px', backgroundColor: '#fff'
           }}
         >
-            <Link sx={{cursor: 'pointer'}} onClick={() => {navigate('/home')}} >
-                <img src={logo} width={250} alt="Space os Knowledge" />
-            </Link>
+            
           <Typography mt={2} component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form"  noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate>
+            <Typography variant='body2' sx={{
+              color: 'var(--Grey-06, #707378)',
+              /* Body 16 / Regular */
+              fontFamily: 'Inter',
+              fontSize: '16px',
+              marginTop: '24px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '24px', /* 150% */
+              letterSpacing: '-0.5px',
+            }}>Telefon raqami</Typography>
             <TextField
               margin="normal"
               required
               fullWidth
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              color='primary'
+              color='success'
               id="email"
               error={errorEmail}
               helperText={helperTextEmail}
-              label="Email Address"
+              label="+998"
               name="email"
               autoComplete="email"
               autoFocus
             />
+            <Typography variant='body2' sx={{
+              color: 'var(--Grey-06, #707378)',
+              /* Body 16 / Regular */
+              fontFamily: 'Inter',
+              fontSize: '16px',
+              marginTop: '24px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '24px', /* 150% */
+              letterSpacing: '-0.5px' 
+            }}>Parol</Typography>
             <TextField
               margin="normal"
               required
-              color='primary'
+              color='success'
               fullWidth
               value={password}            
               error={errorPassword}
@@ -152,29 +189,30 @@ function SignIn() {
             isAgreeForgetPassword ? <Typography variant='subtitle1' color='error'>Parol xato !!!</Typography> : ""}
             <Button
               onClick={login}
-              color='danger'
+              color='success'
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: '24px', mb: 2, borderRadius: '10px', fontSize: '18px', }}
             >
               Sign In
             </Button>
-            <Grid container>
+            <Grid container sx={{marginTop: '24px'}}>
               <Grid item xs>
-                <Link href="#" onClick={forgotPassword} color='primary' variant="body2">
+                <Link href="#" onClick={forgotPassword} color='primary' sx={{color: 'black', fontSize: '14px'}} variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" onClick={() => {navigate("/sign-up")}} color='primary' variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link onClick={() => {navigate("/sign-up")}} sx={{color: 'var(--Grey-06, #707378)' , fontSize: '14px', cursor: 'pointer'}} color='primary' variant="body2">
+                  {"Sign Up"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: '32px', mb: 4 }} />
       </Container>
+      </Stack>
   );
 }
 

@@ -139,14 +139,14 @@ function Header() {
                   </FormControl>
                 </Box>
                 <Box>
-                  <IconButton sx={{ p: 0,  }}>
+                  <IconButton onClick={versus} sx={{ p: 0,  }}>
                     <Avatar alt="Remy Sharp" sx={{bgcolor: '#fff', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}} variant="rounded" src="" >
                       <BarChartIcon sx={{color: '#000'}} />  
                     </Avatar>  
                   </IconButton>
                 </Box>
                 <Box >
-                  <IconButton sx={{ p: 0 }}>
+                  <IconButton onClick={like} sx={{ p: 0 }}>
                     <Avatar alt="Remy Sharp" sx={{bgcolor: '#fff', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}} variant="rounded" src="" >
                       <FavoriteBorderIcon sx={{color: '#000'}} />  
                     </Avatar>  
@@ -163,7 +163,7 @@ function Header() {
                   </> : <Box sx={{ flexGrow: 0 }}>
                       <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-end'>
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" sx={{bgcolor: '#fff', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}} variant="rounded" src="" >
+                        <Avatar alt="Remy Sharp" sx={{bgcolor:'#F1F1F1', border: '1px solid #D0D5DD', width: {xl: 50, md: 50, sm: 32, xs: 32}, height: {xl: 50, md: 50, sm: 32, xs: 32}}}  src="" >
                           <PersonOutlineIcon sx={{color: '#000'}} />  
                         </Avatar>  
                       </IconButton>

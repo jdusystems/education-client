@@ -1,5 +1,6 @@
-import { Stack, Grid, Paper, IconButton, Button, CardActions, Pagination, InputBase, FormControl, Select, MenuItem, Box, SvgIcon,  Typography, Card, CardMedia, CardActionArea, CardContent  } from '@mui/material'
+import { Stack, Grid, Paper, IconButton, Button, CardActions, Pagination, InputBase, FormControl, Select, MenuItem, Box, SvgIcon,  Typography, Card, CardMedia, CardActionArea, CardContent, Container  } from '@mui/material'
 import React from 'react'
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import vs from "../Assets/img/Versus_icon.png";
@@ -10,26 +11,26 @@ import { BarPlot } from '@mui/x-charts';
 import { useState } from 'react';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 7,
+    height: 4,
     borderRadius: 5,
     [`&.${linearProgressClasses.colorPrimary}`]: {
       backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
     },
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 5,
-      backgroundColor: theme.palette.mode === 'light' ? '#BC002D' : '#abd6f6',
+      backgroundColor: theme.palette.mode === 'light' ? '#7CC248' : '#abd6f6',
     },
   }));
 
   const BorderLinearProgressBlue = styled(LinearProgress)(({ theme }) => ({
-    height: 7,
+    height: 4,
     borderRadius: 5,
     [`&.${linearProgressClasses.colorPrimary}`]: {
       backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
     },
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 5,
-      backgroundColor: theme.palette.mode === 'light' ? '#072556' : '#abd6f6',
+      backgroundColor: theme.palette.mode === 'light' ? '#1495E0' : '#abd6f6',
     },
   }));
 
@@ -40,11 +41,21 @@ function Versus() {
       };
   return (
     <Stack>
-        <Grid container spacing={3} alignItems='center'>
-            <Grid item mt={3} xl={6}>
-                <Typography variant='h6' fontWeight='bold'>Taqqoslamoqchi bo'lgan talim muassasini tanlang</Typography>
+        <Container>
+        <Grid container spacing={3} marginTop='8px' alignItems='center'>
+            <Grid item mt={3} xl={6} md={6} sm={12} xs={12}>
+                <Typography variant='h6' sx={{
+                    color: '#000',
+                    /* Large Title/2 */
+                    fontFamily: 'Inter',
+                    fontSize: '24px',
+                    fontStyle: 'normal',
+                    fontWeight: 500,
+                    lineHeight: '30px', /* 125% */
+                    letterSpacing: '-1px', 
+                }} fontWeight='bold'>Taqqoslamoqchi bo'lgan talim muassasini tanlang</Typography>
             </Grid>
-            <Grid item mt={3} xl={6}>
+            <Grid item mt={3} xl={6} md={6} sm={12} xs={12}>
                 <FormControl fullWidth >
                   <Select
 
@@ -70,7 +81,7 @@ function Versus() {
             </Grid>
         </Grid>
         <Grid container spacing={3}>
-            <Grid mt={3} item xl={6}>
+            <Grid mt={3} item xl={6} md={12} sm={12} xs={12}>
                 <Paper
                   component="form"
                   sx={{display: 'flex', alignItems: 'center', width: '100%' }}
@@ -84,8 +95,11 @@ function Versus() {
                   </IconButton>
                 </Paper>  
                 <Grid container mt={2} spacing={3}>
-                    <Grid item xl={6}>
-                        <Card>
+                    <Grid item xl={6} md={4} sm={6} xs={12}>
+                        <Card sx={{
+                            border: '3px solid var(--border-base-surface, #FFF); background: #F5F5F5',
+                            boxShadow: '0px 1px 3px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px -2px rgba(0, 0, 0, 0.04)' 
+                        }}>
                             <CardActionArea>
                                 <CardMedia
                                 component="img"
@@ -110,19 +124,32 @@ function Versus() {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button  size="small" variant='contained' color="primary">
+                                <Button  size="small" sx={{
+                                    padding: '8px 16px',
+                                    marginTop: '10px',
+                                    borderRadius: '10px',
+                                    border: '1px solid #E2E3E6',
+                                    background: '#FFF',
+                                    color: 'black',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '26px', /* 144.444% */
+                                    letterSpacing: '-0.6px',
+                                    textTransform: 'capitalize', 
+                                }} variant='contained' color='grey'>
                                 Comparison
                                 </Button>
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xl={6}>
+                    <Grid item xl={6} md={4} sm={6} xs={12}>
                         <Card>
                             <CardActionArea>
                                 <CardMedia
                                 component="img"
                                 height="140"
-                                image="https://picsum.photos/2100/2100"
+                                image="https://picsum.photos/2003/2003"
                                 alt="green iguana"
                                 />
                                 <CardContent>
@@ -132,49 +159,75 @@ function Versus() {
                                     <Typography mt={1} variant='body2'>Category 1</Typography>
                                     <BorderLinearProgress variant="determinate" value={60} />
                                     <Typography mt={1} variant='body2'>Category 2</Typography>
-                                    <BorderLinearProgress variant="determinate" value={70} />
+                                    <BorderLinearProgress variant="determinate" value={30} />
                                     <Typography mt={1} variant='body2'>Category 3</Typography>
-                                    <BorderLinearProgress variant="determinate" value={80} />
+                                    <BorderLinearProgress variant="determinate" value={70} />
                                     <Typography mt={1} variant='body2'>Category 4</Typography>
-                                    <BorderLinearProgress variant="determinate" value={90} />
-                                    <Typography mt={1} variant='body2'>Category 5</Typography>
-                                    <BorderLinearProgress variant="determinate" value={100} />
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button  size="small" variant='contained' color="primary">
-                                Comparison
-                                </Button>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                    <Grid item xl={6}>
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia
-                                component="img"
-                                height="140"
-                                image="https://picsum.photos/2200/2200"
-                                alt="green iguana"
-                                />
-                                <CardContent>
-                                <Typography gutterBottom variant="subtitle1" fontWeight='bold' component="div">
-                                    Uniersity
-                                </Typography>
-                                    <Typography mt={1} variant='body2'>Category 1</Typography>
-                                    <BorderLinearProgress variant="determinate" value={60} />
-                                    <Typography mt={1} variant='body2'>Category 2</Typography>
-                                    <BorderLinearProgress variant="determinate" value={70} />
-                                    <Typography mt={1} variant='body2'>Category 3</Typography>
                                     <BorderLinearProgress variant="determinate" value={40} />
-                                    <Typography mt={1} variant='body2'>Category 4</Typography>
-                                    <BorderLinearProgress variant="determinate" value={20} />
                                     <Typography mt={1} variant='body2'>Category 5</Typography>
-                                    <BorderLinearProgress variant="determinate" value={80} />
+                                    <BorderLinearProgress variant="determinate" value={90} />
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button  size="small" variant='contained' color="primary">
+                                <Button  size="small" sx={{
+                                    padding: '8px 16px',
+                                    marginTop: '10px',
+                                    borderRadius: '10px',
+                                    border: '1px solid #E2E3E6',
+                                    background: '#FFF',
+                                    color: 'black',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '26px', /* 144.444% */
+                                    letterSpacing: '-0.6px',
+                                    textTransform: 'capitalize', 
+                                }} variant='contained' color='grey'>
+                                Comparison
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                    <Grid item xl={6} md={4} sm={6} xs={12}>
+                        <Card>
+                            <CardActionArea>
+                                <CardMedia
+                                component="img"
+                                height="140"
+                                image="https://picsum.photos/2002/2002"
+                                alt="green iguana"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="subtitle1" fontWeight='bold' component="div">
+                                    Uniersity
+                                </Typography>
+                                    <Typography mt={1} variant='body2'>Category 1</Typography>
+                                    <BorderLinearProgress variant="determinate" value={60} />
+                                    <Typography mt={1} variant='body2'>Category 2</Typography>
+                                    <BorderLinearProgress variant="determinate" value={30} />
+                                    <Typography mt={1} variant='body2'>Category 3</Typography>
+                                    <BorderLinearProgress variant="determinate" value={70} />
+                                    <Typography mt={1} variant='body2'>Category 4</Typography>
+                                    <BorderLinearProgress variant="determinate" value={40} />
+                                    <Typography mt={1} variant='body2'>Category 5</Typography>
+                                    <BorderLinearProgress variant="determinate" value={90} />
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button  size="small" sx={{
+                                    padding: '8px 16px',
+                                    marginTop: '10px',
+                                    borderRadius: '10px',
+                                    border: '1px solid #E2E3E6',
+                                    background: '#FFF',
+                                    color: 'black',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '26px', /* 144.444% */
+                                    letterSpacing: '-0.6px',
+                                    textTransform: 'capitalize', 
+                                }} variant='contained' color='grey'>
                                 Comparison
                                 </Button>
                             </CardActions>
@@ -182,10 +235,10 @@ function Versus() {
                     </Grid>
                 </Grid>
                 <Stack my={5}>
-                    <Pagination sx={{margin: '0 auto'}} count={10} color="primary" />
+                    <Pagination sx={{margin: '0 auto'}} shape="rounded" defaultPage={6} count={10} color="success" />
                 </Stack>
             </Grid>
-            <Grid mt={3} item xl={6}>
+            <Grid mt={3} item xl={6} md={12} sm={12} xs={12}>
                 <Paper
                   component="form"
                   sx={{display: 'flex', alignItems: 'center', width: '100%' }}
@@ -199,13 +252,13 @@ function Versus() {
                   </IconButton>
                 </Paper>
                 <Grid container mt={2} spacing={3}>
-                    <Grid item xl={6}>
+                <Grid item xl={6} md={4} sm={6} xs={12}>
                         <Card>
                             <CardActionArea>
                                 <CardMedia
                                 component="img"
                                 height="140"
-                                image="https://picsum.photos/2000/2000"
+                                image="https://picsum.photos/2020/2020"
                                 alt="green iguana"
                                 />
                                 <CardContent>
@@ -213,31 +266,44 @@ function Versus() {
                                     Uniersity
                                 </Typography>
                                     <Typography mt={1} variant='body2'>Category 1</Typography>
-                                    <BorderLinearProgress variant="determinate" value={60} />
+                                    <BorderLinearProgressBlue variant="determinate" value={60} />
                                     <Typography mt={1} variant='body2'>Category 2</Typography>
-                                    <BorderLinearProgress variant="determinate" value={30} />
+                                    <BorderLinearProgressBlue variant="determinate" value={30} />
                                     <Typography mt={1} variant='body2'>Category 3</Typography>
-                                    <BorderLinearProgress variant="determinate" value={70} />
+                                    <BorderLinearProgressBlue variant="determinate" value={70} />
                                     <Typography mt={1} variant='body2'>Category 4</Typography>
-                                    <BorderLinearProgress variant="determinate" value={40} />
+                                    <BorderLinearProgressBlue variant="determinate" value={40} />
                                     <Typography mt={1} variant='body2'>Category 5</Typography>
-                                    <BorderLinearProgress variant="determinate" value={90} />
+                                    <BorderLinearProgressBlue variant="determinate" value={90} />
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button  size="small" variant='contained' color="primary">
+                                <Button  size="small" sx={{
+                                    padding: '8px 16px',
+                                    marginTop: '10px',
+                                    borderRadius: '10px',
+                                    border: '1px solid #E2E3E6',
+                                    background: '#FFF',
+                                    color: 'black',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '26px', /* 144.444% */
+                                    letterSpacing: '-0.6px',
+                                    textTransform: 'capitalize', 
+                                }} variant='contained' color='grey'>
                                 Comparison
                                 </Button>
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xl={6}>
+                    <Grid item xl={6} md={4} sm={6} xs={12}>
                         <Card>
                             <CardActionArea>
                                 <CardMedia
                                 component="img"
                                 height="140"
-                                image="https://picsum.photos/2100/2100"
+                                image="https://picsum.photos/2013/2013"
                                 alt="green iguana"
                                 />
                                 <CardContent>
@@ -245,31 +311,44 @@ function Versus() {
                                     Uniersity
                                 </Typography>
                                     <Typography mt={1} variant='body2'>Category 1</Typography>
-                                    <BorderLinearProgress variant="determinate" value={60} />
+                                    <BorderLinearProgressBlue variant="determinate" value={60} />
                                     <Typography mt={1} variant='body2'>Category 2</Typography>
-                                    <BorderLinearProgress variant="determinate" value={70} />
+                                    <BorderLinearProgressBlue variant="determinate" value={30} />
                                     <Typography mt={1} variant='body2'>Category 3</Typography>
-                                    <BorderLinearProgress variant="determinate" value={80} />
+                                    <BorderLinearProgressBlue variant="determinate" value={70} />
                                     <Typography mt={1} variant='body2'>Category 4</Typography>
-                                    <BorderLinearProgress variant="determinate" value={90} />
+                                    <BorderLinearProgressBlue variant="determinate" value={40} />
                                     <Typography mt={1} variant='body2'>Category 5</Typography>
-                                    <BorderLinearProgress variant="determinate" value={100} />
+                                    <BorderLinearProgressBlue variant="determinate" value={90} />
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button  size="small" variant='contained' color="primary">
+                                <Button  size="small" sx={{
+                                   padding: '8px 16px',
+                                    marginTop: '10px',
+                                    borderRadius: '10px',
+                                    border: '1px solid #E2E3E6',
+                                    background: '#FFF',
+                                    color: 'black',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '26px', /* 144.444% */
+                                    letterSpacing: '-0.6px',
+                                    textTransform: 'capitalize', 
+                                }} variant='contained' color='grey'>
                                 Comparison
                                 </Button>
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xl={6}>
+                    <Grid item xl={6} md={4} sm={6} xs={12}>
                         <Card>
                             <CardActionArea>
                                 <CardMedia
                                 component="img"
                                 height="140"
-                                image="https://picsum.photos/2200/2200"
+                                image="https://picsum.photos/2004/2004"
                                 alt="green iguana"
                                 />
                                 <CardContent>
@@ -277,19 +356,32 @@ function Versus() {
                                     Uniersity
                                 </Typography>
                                     <Typography mt={1} variant='body2'>Category 1</Typography>
-                                    <BorderLinearProgress variant="determinate" value={60} />
+                                    <BorderLinearProgressBlue variant="determinate" value={60} />
                                     <Typography mt={1} variant='body2'>Category 2</Typography>
-                                    <BorderLinearProgress variant="determinate" value={70} />
+                                    <BorderLinearProgressBlue variant="determinate" value={30} />
                                     <Typography mt={1} variant='body2'>Category 3</Typography>
-                                    <BorderLinearProgress variant="determinate" value={40} />
+                                    <BorderLinearProgressBlue variant="determinate" value={70} />
                                     <Typography mt={1} variant='body2'>Category 4</Typography>
-                                    <BorderLinearProgress variant="determinate" value={20} />
+                                    <BorderLinearProgressBlue variant="determinate" value={40} />
                                     <Typography mt={1} variant='body2'>Category 5</Typography>
-                                    <BorderLinearProgress variant="determinate" value={80} />
+                                    <BorderLinearProgressBlue variant="determinate" value={90} />
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button  size="small" variant='contained' color="primary">
+                                <Button  size="small" sx={{
+                                    padding: '8px 16px',
+                                    marginTop: '10px',
+                                    borderRadius: '10px',
+                                    border: '1px solid #E2E3E6',
+                                    background: '#FFF',
+                                    color: 'black',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '26px', /* 144.444% */
+                                    letterSpacing: '-0.6px',
+                                    textTransform: 'capitalize', 
+                                }} variant='contained' color='grey'>
                                 Comparison
                                 </Button>
                             </CardActions>
@@ -298,14 +390,22 @@ function Versus() {
 
                 </Grid>
                 <Stack my={5}>
-                    <Pagination sx={{margin: '0 auto'}} count={10} color="primary" />
+                    <Pagination sx={{margin: '0 auto'}} shape="rounded" defaultPage={3} count={10} color="success" />
                 </Stack>
             </Grid>
         </Grid>
-        <Typography variant='h6' fontWeight='bold'>Taqqoslash natijasi</Typography>
-        <Grid container mt={3}>
-            <Grid item xl={5}>
-                <Card>
+        <Typography sx={{
+            marginTop: '52px',fontFamily: 'Inter',
+            fontSize: '24px',
+            fontStyle: 'normal',
+            fontWeight: 500,
+            lineHeight: '30px', /* 125% */
+            letterSpacing: '-1px', }} variant='h6' fontWeight='bold'>Taqqoslash natijasi</Typography>
+        <Grid container spacing={5} mt='52px'>
+            <Grid item xl={6} md={6} sm={6} xs={12}>
+                <Card sx={{padding: '0 0 24px 0', 
+                            border: '3px solid var(--border-base-surface, #FFF); background: #F5F5F5',
+                            boxShadow: '0px 1px 3px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px -2px rgba(0, 0, 0, 0.04)' }}>
                     <CardActionArea>
                         <CardMedia
                         component="img"
@@ -331,11 +431,10 @@ function Versus() {
                     </CardActionArea>
                 </Card>
             </Grid>
-            <Grid item display='flex' alignItems='center' xl={2}>
-                <img src={vs} width='100%' alt="Vs" />
-            </Grid>
-            <Grid item xl={5}>
-            <Card>
+            <Grid item xl={6} md={6} sm={6} xs={12}>
+            <Card sx={{padding: '0 0 24px 0', 
+                            border: '3px solid var(--border-base-surface, #FFF); background: #F5F5F5',
+                            boxShadow: '0px 1px 3px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px -2px rgba(0, 0, 0, 0.04)' }}>
                 <CardActionArea>
                     <CardMedia
                     component="img"
@@ -362,18 +461,32 @@ function Versus() {
                 </Card>
             </Grid>
         </Grid>
-        <Grid container>
-            <Grid item xl={12}>
+        <Grid container marginTop='32px'>
+            <Grid item xl={12} md={12} sm={12} xs={12} display='flex' justifyContent='flex-end' gap={1}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <FiberManualRecordIcon sx={{color: '#7CC248' }} />
+                    <Typography sx={{
+                        fontSize: '14px',
+                    }}>University 1</Typography>
+                </Stack>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <FiberManualRecordIcon sx={{color: '#1495E0' }} />
+                    <Typography sx={{
+                        fontSize: '14px',
+                    }}>University 1</Typography>
+                </Stack>
+            </Grid>
+            <Grid item xl={12} md={12} sm={12} xs={12}>
                 <ResponsiveChartContainer
                 series={[
                     {
                         type: 'bar',
-                        color: "#BC002D",
+                        color: "#7CC248",
                         data: [60, 30, 70, 40, 90],
                     },
                     {
                         type: 'bar',
-                        color: '#072556',
+                        color: '#1495E0',
                         data: [50, 70, 80, 80, 50],
                     },
                 ]}
@@ -384,13 +497,14 @@ function Versus() {
                     id: 'x-axis-id',
                     },
                 ]}
-                height={300}
+                height={550}
                 >
                     <BarPlot />
                     <ChartsXAxis  position="bottom" axisId="x-axis-id" />
                 </ResponsiveChartContainer>
             </Grid>
         </Grid>
+        </Container>
     </Stack>
   )
 }

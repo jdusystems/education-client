@@ -21,6 +21,10 @@ export const themeOptions = createTheme({
     success : {
         contrastText: "#fff",
         main: '#7CC248',
+    },
+    warning: {
+      contrastText: "#fff",
+      main: '#FE6645',
     }
   },
   typography: {

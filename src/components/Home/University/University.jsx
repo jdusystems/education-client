@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography,Container, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
+import { Grid, Stack, Rating, Typography,Container, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import academyLogo from '../../Assets/img/academy-logo.png'
@@ -73,7 +73,7 @@ function University() {
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item sx={{marginTop: '50px'}} xl={4} md={4} sm={6} xs={12}>
+        <Grid item sx={{marginTop: '50px'}} xl={4} md={4} sm={6} xs={12}>
             <Card            
               variant="outlined"
               sx={{
@@ -90,13 +90,16 @@ function University() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -203,13 +206,16 @@ function University() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
@@ -316,13 +322,16 @@ function University() {
               <CardContent sx={{padding: 0}}>
                 <img style={{width:'100%'}} src={images[2].imgPath} alt="" />
               </CardContent>   
-              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'flex-end'}}>
+              <CardContent  sx={{padding: 0, display: 'flex', justifyContent: 'space-between'}}>
+                <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                    <Rating size='small' sx={{color: '#FE6645'}} name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Stack>
                 <Stack mt={1} direction="row" alignItems="center" gap={1}>
                   <RemoveRedEyeIcon color='grey' fontSize='small' />        
                   <Typography variant='body2' sx={{color: '#707378', fontSize: {xl: '16px', md: '16px', sm: '14px', xs: '12px'}}}>123 views</Typography>
                 </Stack>
               </CardContent>    
-              <CardContent sx={{padding: 0}}>
+              <CardContent  sx={{padding: 0, mt: '27px'}}>
                 <Typography variant='h6' sx={{
                   color: '#000',
                   fontFamily: 'Inter',
