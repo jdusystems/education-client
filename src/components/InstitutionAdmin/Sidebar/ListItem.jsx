@@ -23,7 +23,7 @@ export const mainListItems = (
     <Link style={navLinkStyle} to='dashboard'>
         <ListItemButton>
         <ListItemIcon>
-            <DashboardIcon color='danger' />
+            <DashboardIcon color='black' />
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
         </ListItemButton>
@@ -31,7 +31,7 @@ export const mainListItems = (
     <Link to='my-advertising' style={navLinkStyle}>
         <ListItemButton>
         <ListItemIcon>
-            <BallotIcon color='danger' />
+            <BallotIcon color='black' />
         </ListItemIcon>
         <ListItemText primary="My Advertising" />
         </ListItemButton>
@@ -39,7 +39,7 @@ export const mainListItems = (
     <Link to='profile' style={navLinkStyle}>
         <ListItemButton>
         <ListItemIcon>
-            <AccountCircleIcon  color='danger'/>
+            <AccountCircleIcon  color='black'/>
         </ListItemIcon>
         <ListItemText primary="Profile" />
         </ListItemButton>
@@ -47,7 +47,7 @@ export const mainListItems = (
     <Link to='create-advertising' style={navLinkStyle}>
         <ListItemButton>
         <ListItemIcon>
-            <AddCircleIcon  color='danger'/>
+            <AddCircleIcon  color='black'/>
         </ListItemIcon>
         <ListItemText primary="Create Advertising" />
         </ListItemButton>
@@ -60,14 +60,14 @@ export const secondaryListItems = (
     <Link to='increase-efficiency' style={navLinkStyle}>
         <ListItemButton>
         <ListItemIcon>
-            <MonetizationOnIcon color='danger'/>
+            <MonetizationOnIcon color='black'/>
         </ListItemIcon>
         <ListItemText primary="Increase Efficiency" />
         </ListItemButton>
     </Link>
     <ListItemButton style={navLinkStyle}>
         <ListItemIcon>
-            <LogoutIcon color='danger'/>
+            <LogoutIcon color='black'/>
         </ListItemIcon>
         <ListItemText primary="Log Out" />
     </ListItemButton>

@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { TextField, MenuItem, FormControl, FormGroup, Grid, } from '@mui/material';
 import { MuiFileInput } from 'mui-file-input';
+import { Container } from '@mui/system';
 
 const steps = ['Passport malumotlari.', 'Umumiy malumotlar', 'Xujjatlar'];
 
@@ -67,11 +68,11 @@ export default function UniversityApplication() {
   };
 
   return (
-    <Box mt={4} sx={{ width: '100%' }}>
-      <Stepper nonLinear activeStep={activeStep}>
+    <Box mt={4} sx={{ width: '100%'}}>
+      <Stepper sx={{'& .MuiStepIcon-root': {color: 'success'}}}  nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
+          <Step  key={label} completed={completed[index]}>
+            <StepButton  onClick={handleStep(index)}>
               {label}
             </StepButton>
           </Step>
@@ -93,26 +94,30 @@ export default function UniversityApplication() {
             {
                 activeStep + 1 === 1 ? 
                 <>
-                  <Box my={4}>
-                  <Grid container spacing={3}>
+                  <Box my={4}> 
+                  <Grid container spacing={3} sx={{display:'flex', flexDirection:'column',}}>
                     <Grid item xl={6}>
-                        <FormControl>
+                        <FormControl >
+                         <Container
+                         sx={{display:{xl:'flex', md:'flex', sm:'block', xs:'block'}, }}> 
                         <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         required
                         color='primary'
                         id="first-name"
                         label="First Name"
                         name="first-name"
                         helperText="Please select First Name"
+                        
                       />
                     </FormGroup>
                     <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
+                        paddingLeft="10px"
                         required
                         color='primary'
                         id="last-name"
@@ -124,7 +129,7 @@ export default function UniversityApplication() {
                     <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         required
                         color='primary'
                         id="father-name"
@@ -132,11 +137,26 @@ export default function UniversityApplication() {
                         name="father-name"
                         helperText="Please select Father Name"
                       />
-                    </FormGroup>
+                      </FormGroup>
+                      </Container>
                     </FormControl>
                     </Grid>
                     <Grid item xl={6}>
                         <FormControl fullWidth>
+                        <Container sx={{display:{xl:'flex', md:'flex', sm:'block', xs:'block'}, flexDirection:'row'}}> 
+                        <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
+                        required
+                        color='primary'
+                        id="father-name"
+                        label="Date of birth"
+                        name="father-name"
+                        helperText="Please enter date of birth"
+                      />
+                    </FormGroup>
+
                     <FormGroup> 
                       <TextField
                         id="outlined-select-currency"
@@ -144,9 +164,10 @@ export default function UniversityApplication() {
                         margin="normal"
                         value={academy}
                         onChange={(e) => {setAcademy(e.target.value)}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'},paddingRight:'20px'}}
                         color='primary'
-                        label="Gander"
-                        helperText="Please select Gander">
+                        label="Gender"
+                        helperText="Please select Gender">
                             <MenuItem  value="O'quv Markaz">
                                 O'quv Markaz
                             </MenuItem>
@@ -166,6 +187,7 @@ export default function UniversityApplication() {
                         id="outlined-select-currency"
                         select
                         margin="normal"
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         value={academy}
                         onChange={(e) => {setAcademy(e.target.value)}}
                         color='primary'
@@ -185,6 +207,7 @@ export default function UniversityApplication() {
                             </MenuItem>
                       </TextField>
                     </FormGroup>
+                    </Container>
                         </FormControl>
                     </Grid>
                   </Grid>
@@ -192,14 +215,15 @@ export default function UniversityApplication() {
                 </> 
                 : activeStep + 1 === 2 ? 
                 <>
-                <Box mt={2}>
-                  <Grid container spacing={3}>
+                <Box mt={2} >
+                  <Grid container spacing={3} sx={{display:'flex', flexDirection:'column'}}>
                   <Grid item xl={6}>
                         <FormControl>
+                        <Container sx={{display:{xl:'flex', md:'flex', sm:'block', xs:'block'}, flexDirection:'row'}}> 
                         <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         required
                         color='primary'
                         id="email"
@@ -211,7 +235,7 @@ export default function UniversityApplication() {
                     <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         required
                         color='primary'
                         id="phone"
@@ -225,6 +249,7 @@ export default function UniversityApplication() {
                         id="outlined-select-currency"
                         select
                         margin="normal"
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:{xl:'none', md:'none', sm:'20px', xs:'20px'}}}
                         value={academy}
                         onChange={(e) => {setAcademy(e.target.value)}}
                         color='primary'
@@ -244,10 +269,18 @@ export default function UniversityApplication() {
                             </MenuItem>
                       </TextField>
                     </FormGroup>
-                    <FormGroup>
+                    </Container>
+
+                   
+                    </FormControl>
+                    </Grid>
+                    <Grid item xl={6}>
+                        <FormControl>
+                         <Container sx={{display:{xl:'flex', md:'flex', sm:'block', xs:'block'}, flexDirection:'row'}}>
+                        <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         required
                         color='primary'
                         id="address"
@@ -256,14 +289,11 @@ export default function UniversityApplication() {
                         name="address"
                       />
                     </FormGroup> 
-                        </FormControl>
-                    </Grid>
-                    <Grid item xl={6}>
-                        <FormControl>
+                        
                         <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         required
                         color='primary'
                         id="age"
@@ -276,7 +306,7 @@ export default function UniversityApplication() {
                     <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:{xl:'none', md:'none', sm:'20px', xs:'20px'}}}
                         required
                         color='primary'
                         id="last-academy"
@@ -285,10 +315,14 @@ export default function UniversityApplication() {
                         name="last-academy"
                       />
                     </FormGroup>
+                    </Container>
+
+                    <Container sx={{display:{xl:'flex', md:'flex', sm:'block', xs:'block'}, flexDirection:'row'}}>
+
                     <FormGroup>
                       <TextField
                         margin="normal"
-                        sx={{width: '400px'}}
+                        sx={{width:{xl:'400px', md:'350px', sm:'300px', xs:'300px'}, paddingRight:'20px'}}
                         required
                         color='primary'
                         id="direction"
@@ -297,6 +331,8 @@ export default function UniversityApplication() {
                         helperText="Please select Direction"
                       />
                     </FormGroup>
+                         </Container>
+
                         </FormControl>
                     </Grid>
                     
@@ -332,6 +368,7 @@ export default function UniversityApplication() {
                 </> 
             }
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+              
               <Button
                 color="inherit"
                 disabled={activeStep === 0}
@@ -339,10 +376,13 @@ export default function UniversityApplication() {
                 variant='contained'
                 sx={{ mr: 1 }}
               >
-                Back
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 13V20L4 12L12 4V11H20V13H12Z" fill="black"/>
+                </svg>
+
               </Button>
               <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} variant='contained' sx={{ mr: 1 }}>
+              <Button onClick={handleNext} variant='outlined' sx={{ mr: 1 }}>
                 Next
               </Button>
               {activeStep !== steps.length &&
@@ -351,7 +391,7 @@ export default function UniversityApplication() {
                     Step {activeStep + 1} already completed
                   </Typography>
                 ) : (
-                  <Button variant='contained' color='danger'>
+                  <Button variant='contained' color='success'>
                     Apply to all
                   </Button>
                 ))}

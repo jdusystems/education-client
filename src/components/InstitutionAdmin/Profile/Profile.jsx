@@ -7,6 +7,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import LanguageIcon from '@mui/icons-material/Language';
+import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { MuiFileInput } from 'mui-file-input';
 import { useState } from 'react';
 import { useRef } from 'react';
@@ -57,17 +59,51 @@ function Profile() {
         <Grid item xl={3}>
         <Typography mb={2} variant='subtitle1'>Profile Photo...</Typography>
           <Stack>
-              <DropFileInput
-              ref={wrapperRef}
-              onDragEnter={onDragEnter}
-              onDragLeave={onDragLeave}
-              onDrop={onDrop}
-          >
-                  <DropFileInputLabel>
-                      <img src="https://picsum.photos/2300/2300" style={{width: '100%', objectFit: 'cover', borderRadius: '20px'}} alt="Upload" />
-                  </DropFileInputLabel>
-                  <input style={dropFileInput} multiple type="file" value="" onChange={onFileDrop}/>
+          <DropFileInput
+                style={{ borderRadius: "100%" }}
+                ref={wrapperRef}
+                onDragEnter={onDragEnter}
+                onDragLeave={onDragLeave}
+                onDrop={onDrop}
+              >
+                <DropFileInputLabel>
+                  <img
+                    src="https://picsum.photos/2300/2300"
+                    style={{
+                      width: "100%",
+                      objectFit: "cover",
+                      borderRadius: "100%",
+                    }}
+                    alt="Upload"
+                  />
+                </DropFileInputLabel>
+                {/* <input
+                  style={dropFileInput}
+                  multiple
+                  type="file"
+                  value=""
+                  onChange={onFileDrop}
+                /> */}
               </DropFileInput>
+
+              <Grid mt={3}  
+                  container
+                  direction="row"
+                  pl={{xl:'0%', md:'20%', sm:'38%', xs:'25%'}}>
+                <Button variant="outlined" sx={{margin:'5px'}} startIcon={<CameraAltOutlinedIcon />}
+                ref={wrapperRef}
+                onDragEnter={onDragEnter}>
+                <input
+                style={dropFileInput}
+                multiple
+                type="file"
+                value=""
+                onChange={onFileDrop}/>
+                Upload</Button>
+              <Button variant="outlined" sx={{margin:'5px'}}>
+              <DropFilePreviewItemDel onClick={() => fileRemove(0)}><DeleteOutlinedIcon/></DropFilePreviewItemDel></Button>
+              </Grid>
+
               {
                   fileList !== null ? (
                       <Box mt={3}>
@@ -78,7 +114,7 @@ function Profile() {
                                     <p>Name: {fileList.name}</p>
                                     <p>Size: {fileList.size} B</p>
                                 </DropFilePreviewItemInfo>
-                                <DropFilePreviewItemDel onClick={() => fileRemove(0)}>x</DropFilePreviewItemDel>
+                                
                             </DropFilePreviewItem>
                       </Box>
                   ) : null
@@ -91,24 +127,24 @@ function Profile() {
               <FormControl sx={{width: '100%'}}>
                 <Typography variant='subtitle1'>Web site Url...</Typography>
                 <Box mt={2} width='100%' sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <LanguageIcon color='danger' sx={{ mr: 1, my: 0.5 }} />
+                  <LanguageIcon color='black' sx={{ mr: 1, my: 0.5 }} />
                   <TextField fullWidth value={site} onChange={(e) => setSite(e.target.value)} id="input-with-sx" label="Web site" variant="standard" />
                 </Box>
                 <Typography mt={5} variant='subtitle1'>Social Network Profile Url...</Typography>
                 <Box mt={2} width='100%' sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <InstagramIcon color='danger' sx={{ mr: 1, my: 0.5 }} />
+                  <InstagramIcon color='black' sx={{ mr: 1, my: 0.5 }} />
                   <TextField fullWidth value={url1} onChange={(e) => setUrl1(e.target.value)} id="input-with-sx" label="Instagram" variant="standard" />
                 </Box>
                 <Box mt={2} width='100%' sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <FacebookIcon color='danger' sx={{ mr: 1, my: 0.5 }} />
+                  <FacebookIcon color='black' sx={{ mr: 1, my: 0.5 }} />
                   <TextField fullWidth value={url2} onChange={(e) => setUrl2(e.target.value)} id="input-with-sx" label="Facebook" variant="standard" />
                 </Box>
                 <Box mt={2} width='100%' sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <YouTubeIcon color='danger' sx={{ mr: 1, my: 0.5 }} />
+                  <YouTubeIcon color='black' sx={{ mr: 1, my: 0.5 }} />
                   <TextField fullWidth value={url3} onChange={(e) => setUrl3(e.target.value)} id="input-with-sx" label="Youtube" variant="standard" />
                 </Box>
                 <Box mt={2} width='100%' value={url4} onChange={(e) => setUrl4(e.target.value)} sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <TelegramIcon color='danger' sx={{ mr: 1, my: 0.5 }} />
+                  <TelegramIcon color='black' sx={{ mr: 1, my: 0.5 }} />
                   <TextField fullWidth id="input-with-sx" label="Telegram" variant="standard" />
                 </Box>
               </FormControl>
@@ -117,10 +153,10 @@ function Profile() {
               <FormControl sx={{width: '100%'}}>
                 <Typography variant='subtitle1'>Personal Information...</Typography>
                   <FormGroup>
-                      <TextField value={fullName} onChange={(e) => {setFullName(e.target.value)}} helperText='Please enter fullName' color='primary' label='FullName' required margin='normal' />
+                      <TextField value={fullName} onChange={(e) => {setFullName(e.target.value)}} helperText='Please enter fullName' color='success' label='FullName' required margin='normal' />
                   </FormGroup>
                   <FormGroup>
-                      <TextField value={phone} onChange={(e) => {setPhone(e.target.value)}} helperText='Please enter phone' color='primary' label='+998' type='number' required margin='normal' />
+                      <TextField value={phone} onChange={(e) => {setPhone(e.target.value)}} helperText='Please enter phone' color='success' label='+998' type='number' required margin='normal' />
                   </FormGroup>
                   <FormGroup sx={{marginTop: '1rem'}}>
                     <TextField
@@ -128,7 +164,7 @@ function Profile() {
                     select
                     value={region}
                     onChange={(e) => {setRegion(e.target.value)}}
-                    color='primary'
+                    color='success'
                     label="Region"
                     helperText="Please select Region">
                         <MenuItem  value="Buxoro Viloyati">
@@ -148,7 +184,7 @@ function Profile() {
                   select
                   value={city}
                   onChange={(e) => {setCity(e.target.value)}}
-                  color='primary'
+                  color='success'
                   label="City"
                   helperText="Please select City">
                       <MenuItem  value="Buxoro Shaxar">
@@ -170,7 +206,7 @@ function Profile() {
             <FormControl fullWidth>
               <FormGroup>
                 <Typography>Bio:</Typography>
-                  <TextField value={bio} onChange={(e) => {setBio(e.target.value)}} helperText='Please enter description' color='primary' label='Bio' required margin='normal' />
+                  <TextField value={bio} onChange={(e) => {setBio(e.target.value)}} helperText='Please enter description' color='success' label='Bio' required margin='normal' />
               </FormGroup>
             </FormControl>
         </Grid>
@@ -178,7 +214,7 @@ function Profile() {
           <FormControl fullWidth>
             <FormGroup>
               <Typography>Certificate:</Typography>
-              <MuiFileInput color='primary' helperText='Enter your Certificate file' margin='normal' value={file} onChange={handleChange} />
+              <MuiFileInput color='success' helperText='Enter your Certificate file' margin='normal' value={file} onChange={handleChange} />
             </FormGroup>
           </FormControl>
         </Grid>
@@ -187,23 +223,23 @@ function Profile() {
           <Places/>
         </Grid>
         <Grid item xl={12}>
-          <Button color='danger' sx={{marginTop: '2.1rem',}} variant="contained">
+          <Button color='secondary' sx={{marginTop: '2.1rem',}} variant="contained">
             Edit Personal Information
           </Button>
         </Grid>
         <Grid item mt={3} xl={4}><Typography variant='subtitle1' gutterBottom fontWeight='bold'>Account:</Typography>
           <FormControl sx={{width: '100%'}}>
                 <FormGroup>
-                    <TextField value={email} onChange={(e) => {setEmail(e.target.value)}} helperText='Please enter Email' color='primary' label='Email' required margin='normal' />
+                    <TextField value={email} onChange={(e) => {setEmail(e.target.value)}} helperText='Please enter Email' color='success' label='Email' required margin='normal' />
                 </FormGroup>
                 <FormGroup>
-                    <TextField value={newPassword} onChange={(e) => {setNewPassword(e.target.value)}} helperText='Please enter new password' color='primary' label='New Password' required margin='normal' />
+                    <TextField value={newPassword} onChange={(e) => {setNewPassword(e.target.value)}} helperText='Please enter new password' color='success' label='New Password' required margin='normal' />
                 </FormGroup>
                 <FormGroup>
-                    <TextField value={resetPassword} onChange={(e) => {setResetPassword(e.target.value)}} helperText='Please enter Reset password' color='primary' label='Reset Password' required margin='normal' />
+                    <TextField value={resetPassword} onChange={(e) => {setResetPassword(e.target.value)}} helperText='Please enter Reset password' color='success' label='Reset Password' required margin='normal' />
                 </FormGroup>
             </FormControl>
-            <Button sx={{marginTop: '2.1rem',}} variant="contained" color="danger">
+            <Button sx={{marginTop: '2.1rem',}} variant="contained" color="secondary">
               Edit Account
             </Button>
         </Grid>
@@ -256,7 +292,7 @@ const DropFilePreviewItemInfo = styled.div`
     font-size: 12px;
 ` 
 const DropFilePreviewItemDel = styled.span`
-    background-color: #ee3d3d;
+    /* background-color: #ee3d3d;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -274,7 +310,7 @@ const DropFilePreviewItemDel = styled.span`
     transition: opacity 0.3s ease;
     &:hover {
         opacity: 1;
-    }
+    } */
 ` 
 
 const dropFileInput = {
