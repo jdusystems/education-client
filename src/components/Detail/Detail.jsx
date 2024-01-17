@@ -606,7 +606,7 @@ function Detail() {
                         </Grid>
                     </Grid>
                     <Stack mt={5}>
-                    <Pagination sx={{margin: '0 auto'}} shape="rounded" defaultPage={3} count={10} color="success" />
+                    <Pagination sx={{margin: '0 auto'}} shape="rounded" defaultPage={3} count={10} color="success" />                  
                     </Stack>
                 </Grid>
             </Grid>
